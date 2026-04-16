@@ -1,57 +1,74 @@
-# =============================================================
-# .dockerignore — Vpanel
-# Exclut du contexte de build tout ce qui n'est pas nécessaire
-# pour construire l'image de production.
-# =============================================================
+# Version control
+.git
+.gitignore
+.gitattributes
 
-# Dépendances Node (reconstruites dans le builder stage)
+# Dependencies
 node_modules
+npm-debug.log
+package-lock.json
+yarn.lock
 
-# Artefacts de build (reconstruits dans le builder stage)
+# Build artifacts (will be created during Docker build)
 dist
-dist-ssr
+build
 
-# Fichiers de configuration locaux / secrets
+# Environment files (security - never include in image)
+.env
 .env.local
-*.local
-private/
+.env.*.local
+.env.production
 
-# Fichiers sensibles PHP (gitignorés, générés au runtime par entrypoint.sh)
-public/api/libs/constants.php
-public/api/libs/constants.development.php
-public/api/libs/constants.production.php
-public/api/vpanel.db
-public/api/*.db
-public/api/templates/
-
-# Fichiers de développement
-.vscode/
-.idea/
-.run/
+# IDE and editor files
+.vscode
+.idea
+.code-workspace
+*.swp
+*.swo
+*~
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Logs
-logs/
-*.log
-
-# Git
-.git/
-.github/
-
-# Documentation
+# Documentation and config (not needed in runtime)
+README.md
+CLAUDE.md
+API.md
+CHANGELOG.md
 docs/
+.cursor/
+.github/
+claude/
+DEPLOYMENT_CHECKLIST.md
 
-# Fichiers de test / tutoriaux PHP (non nécessaires en prod)
-public/api/libs/fpdf186/tutorial/
-public/api/libs/fpdf186/makefont/
-public/api/libs/PHPMailer-master/get_oauth_token.php
-public/api/libs/php-jwt-main/
+# Test files and coverage
+*.test.js
+*.spec.js
+__tests__
+coverage
+.nyc_output
 
-# Assets de génération PWA
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.db
-docker/init.sql
+# Temporary files
+*.log
+*.tmp
+*.swp
+temp/
+tmp/
+
+# Dev-only tools (not needed in production)
+.eslintrc.cjs
+.prettierrc
+vite.config.js
+app-config.json
+app-config-compiler.cjs
+test-deploy.sh
+
+# Docker files (not needed in image)
+Dockerfile
+docker-compose.yml
+docker-compose.prod.yml
+.dockerignore

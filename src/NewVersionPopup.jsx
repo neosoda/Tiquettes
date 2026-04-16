@@ -45,7 +45,7 @@ export default function NewVersionPopup({
             {
                 'text': "Découvrir les nouveautés",
                 'callback': function () {
-                    window.open('https://www.vpanel.fr/changelog.php', '_blank').focus();
+                    // window.open('https://www.vpanel.fr/changelog.php', '_blank').focus();
                 }
             }
         ]}
@@ -54,6 +54,6 @@ export default function NewVersionPopup({
     >
         <h1>Une nouvelle version ({newVersion ?? '?'}) est disponible !</h1>
         <h2>Votre navigateur Internet utilise une version obsolète.</h2>
-        <h4 style={{ fontWeight: '500' }}>Pour toujours satisfaire vos éxigences les plus pointues, Vpanel.fr évolue sans cesse.<br />Rechargez la page de votre naviguateur ou cliquez sur le bouton ci-dessous pour en profier :-)</h4>
+        <h4 style={{ fontWeight: '500' }}>Pour toujours satisfaire vos éxigences les plus pointues, Vpanel évolue sans cesse.<br />Rechargez la page de votre naviguateur ou cliquez sur le bouton ci-dessous pour en profier :-)</h4>
     </Popup>
 }

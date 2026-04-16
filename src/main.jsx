@@ -51,8 +51,8 @@ export default function Main() {
         console.log("Mode:", import.meta.env.VITE_APP_MODE);
 
         //if (import.meta.env.VITE_APP_MODE !== "development") {
-        const defaultUrl = 'https://www.vpanel.fr/app/?enjoy';
-
+        // Auto-redirection disabled for standalone Vpanel deployments
+        /*const defaultUrl = 'https://www.vpanel.fr/app/?enjoy';
         const domains = ['vpanel.fr', 'www.vpanel.fr'];
         const pathes = [
             '/app/',
@@ -82,7 +82,7 @@ export default function Main() {
         }
 
         const origin = window.location.origin.split('?')[0].toLowerCase().trim();
-        if (!origins.includes(origin)) window.location.replace(defaultUrl);
+        if (!origins.includes(origin)) window.location.replace(defaultUrl);*/
         //}
 
         fetch(`./infos.json?t=${Date.now()}`, {

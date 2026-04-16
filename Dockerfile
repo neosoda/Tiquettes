@@ -36,7 +36,7 @@ RUN echo "Building Vpanel with:" && \
     echo "  VITE_APP_API_URL=${VITE_APP_API_URL}" && \
     echo "  VITE_USE_AUTH=${VITE_USE_AUTH}" && \
     node app-config-compiler.cjs && \
-    ./node_modules/.bin/cpx "src/schema_functions.json" "public/api/libs/toPdf/assets" && \
+    cp -p src/schema_functions.json public/api/libs/toPdf/assets/schema_functions.json && \
     NODE_ENV=production ./node_modules/.bin/vite build --mode coolify
 
 # Verify build

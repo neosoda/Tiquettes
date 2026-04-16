@@ -21,7 +21,8 @@ COPY package.json package-base.json app-config.json ./
 COPY app-config-compiler.cjs ./
 
 # Installer dépendances (with detailed output for debugging)
-RUN npm ci --omit=optional 2>&1 | tail -20
+# --include=dev ensures vite and other devDeps are installed regardless of NODE_ENV
+RUN npm ci --include=dev --omit=optional 2>&1 | tail -20
 
 # Copier source
 COPY src ./src

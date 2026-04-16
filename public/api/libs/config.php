@@ -461,8 +461,12 @@ function filter_string_polyfill(string $string): string
 
 
 // mode
-const DEFAULT_MODE = 'development';
-define('MODE', isset($_GET['m']) ? trim(rawurldecode($_GET['m'])) : DEFAULT_MODE);
+// PHP_APP_MODE env var allows Docker/Coolify to override the default (avoids
+// endpoints that do not pass ?m= from falling back to 'development' in prod).
+$_defaultMode = getenv('PHP_APP_MODE');
+$_defaultMode = ($_defaultMode !== false && $_defaultMode !== '') ? $_defaultMode : 'development';
+define('MODE', isset($_GET['m']) ? trim(rawurldecode($_GET['m'])) : $_defaultMode);
+unset($_defaultMode);
 include_once __DIR__ . '/constants.' . MODE . '.php';
 
 
@@ -494,11 +498,11 @@ define('NOW_TIMESTAMP', NOW->getTimestamp());
 $rfr = isset($_GET['rfr']) ? stripslashes(trim(rawurldecode($_GET['rfr']))) : ($_SERVER['HTTP_REFERER'] ?? $_SERVER['HTTP_HOST'] ?? '');
 define('REFERER', $rfr);
 if (MODE !== 'development') {
-    $hostIsAllowed = in_array(true, array_map(fn($allowedHost) => stripos(REFERER, $allowedHost, 0) !== false, [
-        'localhost',
-        '127.0.0.1',
-        'www.tiquettes.fr'
-    ]));
+    // ALLOWED_HOSTS can be defined in constants.<mode>.php to extend the list
+    // with the site's own hostname (required for Coolify / self-hosted deployments).
+    $defaultAllowedHosts = ['localhost', '127.0.0.1', 'www.tiquettes.fr'];
+    $allowedHosts = defined('ALLOWED_HOSTS') ? array_merge($defaultAllowedHosts, ALLOWED_HOSTS) : $defaultAllowedHosts;
+    $hostIsAllowed = in_array(true, array_map(fn($allowedHost) => stripos(REFERER, $allowedHost, 0) !== false, $allowedHosts));
     if (!$hostIsAllowed) {
         header("HTTP/1.1 401 Unauthorized");
         exit(0);

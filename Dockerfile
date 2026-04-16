@@ -20,8 +20,8 @@ ENV VITE_USE_AUTH=${VITE_USE_AUTH}
 COPY package.json package-lock.json package-base.json app-config.json ./
 COPY app-config-compiler.cjs ./
 
-# Installer dépendances (--include=dev : vite et devDeps requis au build)
-RUN npm ci --include=dev --omit=optional
+# Installer TOUTES les dépendances (--omit=optional interdit : @rollup/rollup-linux-x64-musl requis par Vite sur Alpine/musl)
+RUN npm ci --include=dev
 
 # Copier source
 COPY src ./src

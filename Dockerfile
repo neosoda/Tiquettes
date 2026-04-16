@@ -16,13 +16,12 @@ ENV VITE_APP_URL=${VITE_APP_URL}
 ENV VITE_APP_API_URL=${VITE_APP_API_URL}
 ENV VITE_USE_AUTH=${VITE_USE_AUTH}
 
-# Copier package files
-COPY package.json package-base.json app-config.json ./
+# Copier package files (package-lock.json requis par npm ci)
+COPY package.json package-lock.json package-base.json app-config.json ./
 COPY app-config-compiler.cjs ./
 
-# Installer dépendances (with detailed output for debugging)
-# --include=dev ensures vite and other devDeps are installed regardless of NODE_ENV
-RUN npm ci --include=dev --omit=optional 2>&1 | tail -20
+# Installer dépendances (--include=dev : vite et devDeps requis au build)
+RUN npm ci --include=dev --omit=optional
 
 # Copier source
 COPY src ./src

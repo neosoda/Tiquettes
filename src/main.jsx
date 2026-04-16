@@ -75,6 +75,12 @@ export default function Main() {
         origins.push('http://localhost:' + import.meta.env.VITE_SERVER_PORT);
         origins.push('https://localhost:' + import.meta.env.VITE_SERVER_PORT);
 
+        // Allow the configured app hostname (supports custom Coolify/self-hosted domains)
+        if (import.meta.env.VITE_APP_HOSTNAME) {
+            const configuredOrigin = import.meta.env.VITE_APP_HOSTNAME.replace(/\/$/, '').toLowerCase().trim();
+            if (!origins.includes(configuredOrigin)) origins.push(configuredOrigin);
+        }
+
         const origin = window.location.origin.split('?')[0].toLowerCase().trim();
         if (!origins.includes(origin)) window.location.replace(defaultUrl);
         //}

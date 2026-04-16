@@ -1,0 +1,57 @@
+# =============================================================
+# .dockerignore — Tiquettes
+# Exclut du contexte de build tout ce qui n'est pas nécessaire
+# pour construire l'image de production.
+# =============================================================
+
+# Dépendances Node (reconstruites dans le builder stage)
+node_modules
+
+# Artefacts de build (reconstruits dans le builder stage)
+dist
+dist-ssr
+
+# Fichiers de configuration locaux / secrets
+.env.local
+*.local
+private/
+
+# Fichiers sensibles PHP (gitignorés, générés au runtime par entrypoint.sh)
+public/api/libs/constants.php
+public/api/libs/constants.development.php
+public/api/libs/constants.production.php
+public/api/tiquettes.db
+public/api/*.db
+public/api/templates/
+
+# Fichiers de développement
+.vscode/
+.idea/
+.run/
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Git
+.git/
+.github/
+
+# Documentation
+docs/
+
+# Fichiers de test / tutoriaux PHP (non nécessaires en prod)
+public/api/libs/fpdf186/tutorial/
+public/api/libs/fpdf186/makefont/
+public/api/libs/PHPMailer-master/get_oauth_token.php
+public/api/libs/php-jwt-main/
+
+# Assets de génération PWA
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.db
+*.sql

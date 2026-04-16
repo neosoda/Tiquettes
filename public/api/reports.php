@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- * Copyright (C) 2024-2026 Christophe LEMOINE
+ * Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ * Copyright (C) 2024-2026 Neosoda
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -132,7 +132,7 @@ foreach (STATS_ALLOWED_STRUCTURES_FULL as $structItem) {
             }
 
             if ($rfr !== '') {
-                if (stripos(strtolower($rfr), 'tiquettes.fr') === false) {
+                if (stripos(strtolower($rfr), 'vpanel.fr') === false) {
                     if (!isset($stats['visits'][$structItem['key']]['sources'][$rfr]))
                         $stats['visits'][$structItem['key']]['sources'][$rfr] = 0;
                     $stats['visits'][$structItem['key']]['sources'][$rfr] += 1;

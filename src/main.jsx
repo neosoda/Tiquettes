@@ -1,6 +1,6 @@
 /**
- Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- Copyright (C) 2024-2026 Christophe LEMOINE
+ Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ Copyright (C) 2024-2026 Neosoda
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as published by
@@ -37,9 +37,9 @@ function Footer() {
                 className="footer-link"
                 target="_blank">{pkg.repository.url}</a> | <a
                     href="https://www.gnu.org/licenses/agpl-3.0.fr.html" className="footer-link"
-                    target="_blank">{`Licence ${pkg.license}`}</a> | <a href="https://pantaflex44.github.io/Portfolio/"
+                    target="_blank">{`Licence ${pkg.license}`}</a> | <a href="https://neosoda.github.io/Portfolio/"
                         className="footer-link"
-                    target="_blank">{pkg.author} (pantaflex44)</a> | &copy; 2024-{new Date().getFullYear()}</span>
+                    target="_blank">{pkg.author} (neosoda)</a> | &copy; 2024-{new Date().getFullYear()}</span>
         </div>
     );
 }
@@ -51,9 +51,9 @@ export default function Main() {
         console.log("Mode:", import.meta.env.VITE_APP_MODE);
 
         //if (import.meta.env.VITE_APP_MODE !== "development") {
-        const defaultUrl = 'https://www.tiquettes.fr/app/?enjoy';
+        const defaultUrl = 'https://www.vpanel.fr/app/?enjoy';
 
-        const domains = ['tiquettes.fr', 'www.tiquettes.fr'];
+        const domains = ['vpanel.fr', 'www.vpanel.fr'];
         const pathes = [
             '/app/',
             '/app/api/reports.php',

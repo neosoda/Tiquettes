@@ -4,29 +4,29 @@
 
 ### Corrections
 
-- [[Issue #67](https://github.com/pantaflex44/Tiquettes/issues/67)] Correction d'un bug lors de la ré-identification automatique des modules
+- [[Issue #67](https://github.com/neosoda/Vpanel/issues/67)] Correction d'un bug lors de la ré-identification automatique des modules
 
 ### Ajouts
 
-- [[Discussion #68](https://github.com/pantaflex44/Tiquettes/discussions/68)] Redimmensionnement de la zone de travail
-- [[Issue #66](https://github.com/pantaflex44/Tiquettes/issues/66)] Ajouter des lignes vides au début des libellés des étiquettes.
-- [[Discussion #65](https://github.com/pantaflex44/Tiquettes/discussions/65)] Ajout de la possibilité d'échanger 2 modules en lieu et place.
+- [[Discussion #68](https://github.com/neosoda/Vpanel/discussions/68)] Redimmensionnement de la zone de travail
+- [[Issue #66](https://github.com/neosoda/Vpanel/issues/66)] Ajouter des lignes vides au début des libellés des étiquettes.
+- [[Discussion #65](https://github.com/neosoda/Vpanel/discussions/65)] Ajout de la possibilité d'échanger 2 modules en lieu et place.
 
 
 ## [2.2.6] - 2025-01-05
 
 ### Corrections
 
-- [[PR #54](https://github.com/pantaflex44/Tiquettes/pull/54)] Correction typographique Tiquettes/src/EditorCurrentSelector.jsx par https://github.com/mmnlfrrr.
-- [[Issue #47](https://github.com/pantaflex44/Tiquettes/issues/47)] Correction d'un bug empechant l'affichage du sélecteur de couleur de groupe.
+- [[PR #54](https://github.com/neosoda/Vpanel/pull/54)] Correction typographique Vpanel/src/EditorCurrentSelector.jsx par https://github.com/mmnlfrrr.
+- [[Issue #47](https://github.com/neosoda/Vpanel/issues/47)] Correction d'un bug empechant l'affichage du sélecteur de couleur de groupe.
 - Modification du rendu du schéma unifilaire pour améliorer sa lecture.
-- [[Discussion #43](https://github.com/pantaflex44/Tiquettes/discussions/43)] Modification de la déclaration d'asservissement d'un module. Il est désormais possible de définir un asservissement partiel, permettant d'indiquer qu'un module peut non seulement être asservi par un contacteur mais aussi alimenter directement les autres sources.
+- [[Discussion #43](https://github.com/neosoda/Vpanel/discussions/43)] Modification de la déclaration d'asservissement d'un module. Il est désormais possible de définir un asservissement partiel, permettant d'indiquer qu'un module peut non seulement être asservi par un contacteur mais aussi alimenter directement les autres sources.
 
 ### Ajouts
 
 - Nouvelle fonctionnalité permettant d'indiquer une nouvelle version disponible de l'application. L'utilisateur devra recharger la page de l'application pour en bénéficier.
 - Ajout de la fonction 'Prise modulaire' dans l'éditeur de schéma (Demande directe d'un utilisateur).
-- [[Discussion #44](https://github.com/pantaflex44/Tiquettes/discussions/44)] Ajout d'un nouveau pictogramme: 'Réseau électrique'.
+- [[Discussion #44](https://github.com/neosoda/Vpanel/discussions/44)] Ajout d'un nouveau pictogramme: 'Réseau électrique'.
 
 
 ## [2.2.5] - 2025-10-03
@@ -35,18 +35,18 @@
 
 - Mise à jour globale de toutes les dépendances.
 - Correction des pictogrammes qui possédaient un problème de colorisation lors du rendu PDF.
-- [[Issue #40](https://github.com/pantaflex44/Tiquettes/issues/40)] Correction du moteur de rendu PDF pour la création d'étiquettes de très petites hauteurs.
+- [[Issue #40](https://github.com/neosoda/Vpanel/issues/40)] Correction du moteur de rendu PDF pour la création d'étiquettes de très petites hauteurs.
 - Correction d'un bug qui empèchait de renseigner correctement le groupe lors de l'exportation d'un thème.
 - Légère correction de la position des éléments dans chaque thème imprimable.
 - Optimisation des pictogrammes pour améliorer le rendu dans les documents PDF.
-- [[Issue #28](https://github.com/pantaflex44/Tiquettes/issues/28)] Suppression de la limite de 3 lignes lors de l'impression des propriétés d'un module pour former la nomenclature.
+- [[Issue #28](https://github.com/neosoda/Vpanel/issues/28)] Suppression de la limite de 3 lignes lors de l'impression des propriétés d'un module pour former la nomenclature.
 
 ### Ajouts
 
-- [[Issue #41](https://github.com/pantaflex44/Tiquettes/issues/41)] Nouvelle propriété permettant de renseigner la phase utilisée lors d'une distribution monophasée à partir d'un parent triphasé.
+- [[Issue #41](https://github.com/neosoda/Vpanel/issues/41)] Nouvelle propriété permettant de renseigner la phase utilisée lors d'une distribution monophasée à partir d'un parent triphasé.
 - Nouveau bouton 'zoom' dans la vue schéma de l'éditeur. Permet de légerement agrandir visuellement le schéma affiché.
-- [[Issue #38](https://github.com/pantaflex44/Tiquettes/issues/38)] Nouvelle fonctionnalité permettant le choix du format d'impression pour les pages relatives aux étiquettes, schéma unifilaire et nomenclature. 2 choix possibles: A4 et A3.
-- [[Discussion #36](https://github.com/pantaflex44/Tiquettes/discussions/36)] Réponse à une proposition, nouvelle fonctionnalité qui permet d'associer un module à un groupe via une couleur. Couleur utilisée (si disponible et si demandée) par les thèmes.
+- [[Issue #38](https://github.com/neosoda/Vpanel/issues/38)] Nouvelle fonctionnalité permettant le choix du format d'impression pour les pages relatives aux étiquettes, schéma unifilaire et nomenclature. 2 choix possibles: A4 et A3.
+- [[Discussion #36](https://github.com/neosoda/Vpanel/discussions/36)] Réponse à une proposition, nouvelle fonctionnalité qui permet d'associer un module à un groupe via une couleur. Couleur utilisée (si disponible et si demandée) par les thèmes.
 
 
 ## [2.2.4] - 2025-09-07
@@ -76,7 +76,7 @@
 - [[zoliaaz](https://github.com/zoliaaz)] Création d'un nouveau thème pour l'occasion : '_Type et Description seulement_'.
 - [[zoliaaz](https://github.com/zoliaaz)] Ajout d'une option d'impression permettant d'indiquer, hors zone de coupe, le calibre sous chaque module pour faciliter l'installation de ceux-ci.
 - [[zoliaaz](https://github.com/zoliaaz)] Ajout de la propriété '_Section des conducteurs_' pour chaque module.
-- [[Discussion #29](https://github.com/pantaflex44/Tiquettes/discussions/29#discussioncomment-13903864)] Possibilité d'imprimer ou non la page de garde.
+- [[Discussion #29](https://github.com/neosoda/Vpanel/discussions/29#discussioncomment-13903864)] Possibilité d'imprimer ou non la page de garde.
 - Ajout de nouveaux types de modules pour le schéma unifilaire : '_Fusible_', '_Carillon_', '_Voyant_', '_Commande NO et NF_', '_Bouton poussoir NO et NF_'.
 
 
@@ -86,7 +86,7 @@
 
 - Ajout de lignes de coupe pour les massicots.
 - Ajout de nouvelles propriétés d'impression.
-- Ajout de quelques statistiques accessibles publiquement à l'adresse : https://www.tiquettes.fr/stats.php
+- Ajout de quelques statistiques accessibles publiquement à l'adresse : https://www.vpanel.fr/stats.php
 
 
 ## [2.2.1] - 2025-05-12
@@ -108,16 +108,16 @@
 
 ### Ajouts
 
-- [[Issue #8](https://github.com/pantaflex44/Tiquettes/issues/8)] Grosse nouveauté, ajout de la fonction 'Imprimer au format PDF' dans le menu d'impression d'un projet. Cette nouvelle fonctionnalité permet de résoudre les problèmes de compatibilité avec certains navigateurs basés sur Gecko (Firefox, etc.) et Webkit (Safari, etc.). Une fois la case cochée, le projet est converti en un fichier PDF pour être imprimé correctement en toutes circonstances !
-- Nouveau service externe de conversion d'un projet Tiquettes (>= 2.1.5) en document PDF accessible à l'adresse : https://www.tiquettes.fr/pdf.php.
-- Mise à disposition d'une bibliothèque de thèmes à télécharger pour embellir ses étiquettes (https://www.tiquettes.fr/themes.php).
+- [[Issue #8](https://github.com/neosoda/Vpanel/issues/8)] Grosse nouveauté, ajout de la fonction 'Imprimer au format PDF' dans le menu d'impression d'un projet. Cette nouvelle fonctionnalité permet de résoudre les problèmes de compatibilité avec certains navigateurs basés sur Gecko (Firefox, etc.) et Webkit (Safari, etc.). Une fois la case cochée, le projet est converti en un fichier PDF pour être imprimé correctement en toutes circonstances !
+- Nouveau service externe de conversion d'un projet Vpanel (>= 2.1.5) en document PDF accessible à l'adresse : https://www.vpanel.fr/pdf.php.
+- Mise à disposition d'une bibliothèque de thèmes à télécharger pour embellir ses étiquettes (https://www.vpanel.fr/themes.php).
 
 
 ## [2.1.5] - 2025-04-23
 
 ### Ajouts
 
-- [[PR #21](https://github.com/pantaflex44/Tiquettes/pull/21)] Nouveaux pictogrammes:
+- [[PR #21](https://github.com/neosoda/Vpanel/pull/21)] Nouveaux pictogrammes:
 	- Horloge Journaliere
 	- Horloge Hebdomadaire
 	- Moteur Electrique
@@ -131,9 +131,9 @@
 
 ### Corrections
 
-- [[Discussions #17](https://github.com/pantaflex44/Tiquettes/discussions/17)] Correction d'un bug affectant la représentation correcte d'un contacteur si son parent et le disjoncteur asservi sont les mêmes (télérupteur par exemple asservissant son disjoncteur parent).
-- [[PR #18](https://github.com/pantaflex44/Tiquettes/pull/18)] Correction des fautes d'orthographes dans les noms des icônes.
-- [[Discussion #19](https://github.com/pantaflex44/Tiquettes/discussions/19)] Séparation des icônes 'Volet roulant / Store / Porte de garage' en 3 icônes indépendantes.
+- [[Discussions #17](https://github.com/neosoda/Vpanel/discussions/17)] Correction d'un bug affectant la représentation correcte d'un contacteur si son parent et le disjoncteur asservi sont les mêmes (télérupteur par exemple asservissant son disjoncteur parent).
+- [[PR #18](https://github.com/neosoda/Vpanel/pull/18)] Correction des fautes d'orthographes dans les noms des icônes.
+- [[Discussion #19](https://github.com/neosoda/Vpanel/discussions/19)] Séparation des icônes 'Volet roulant / Store / Porte de garage' en 3 icônes indépendantes.
 - Adaptation automatique des anciens projets au nouveau système de thème.
 
 ### Modifications
@@ -142,7 +142,7 @@
 
 ### Ajouts
 
-- [[Discussions #19](https://github.com/pantaflex44/Tiquettes/discussions/19)] Nouveau pictogramme:
+- [[Discussions #19](https://github.com/neosoda/Vpanel/discussions/19)] Nouveau pictogramme:
 	- Pompe de relevage
 
 
@@ -150,11 +150,11 @@
 
 ### Corrections
 
-- [[PR #12](https://github.com/pantaflex44/Tiquettes/pull/12)] Correction du fichier README.md.
+- [[PR #12](https://github.com/neosoda/Vpanel/pull/12)] Correction du fichier README.md.
 
 ### Ajouts
 
-- [[Issue #13](https://github.com/pantaflex44/Tiquettes/issues/13)] Nouveau pictogramme:
+- [[Issue #13](https://github.com/neosoda/Vpanel/issues/13)] Nouveau pictogramme:
 	- Détecteur de fumées
 	- Sonnette / Carillon
 	- Alarme intrusion
@@ -165,7 +165,7 @@
 
 ### Corrections
 
-- [[Issue #11](https://github.com/pantaflex44/Tiquettes/issues/11)] Correction d'un bug affectant la sélection d'un pictogramme dans l'éditeur de module.
+- [[Issue #11](https://github.com/neosoda/Vpanel/issues/11)] Correction d'un bug affectant la sélection d'un pictogramme dans l'éditeur de module.
 
 
 ## [2.1.1] - 2025-03-21
@@ -182,8 +182,8 @@
 
 ### Corrections
 
-- [[Issue #9](https://github.com/pantaflex44/Tiquettes/issues/9)] Prise en compte de la règle de l'amont dans le monitoring des interrupteurs différentiels.
-- [[Issue #10](https://github.com/pantaflex44/Tiquettes/issues/10)] Modification de la représentation des contacteurs (J/N, télérupteurs, minuteries, etc). Il est désormais possible d'asservir un départ avec un contacteur précédement ajouté.
+- [[Issue #9](https://github.com/neosoda/Vpanel/issues/9)] Prise en compte de la règle de l'amont dans le monitoring des interrupteurs différentiels.
+- [[Issue #10](https://github.com/neosoda/Vpanel/issues/10)] Modification de la représentation des contacteurs (J/N, télérupteurs, minuteries, etc). Il est désormais possible d'asservir un départ avec un contacteur précédement ajouté.
 - Correction d'un bug empêchant le ré-assignement automatique des identifiants parents lors de la modification de l'identifiant d'un module.
 
 ### Ajouts
@@ -210,7 +210,7 @@
 
 ### Corrections
 
-- [[Issue #7](https://github.com/pantaflex44/Tiquettes/issues/7)] Correction du symbole 'Interrupteur Sectionneur'.
+- [[Issue #7](https://github.com/neosoda/Vpanel/issues/7)] Correction du symbole 'Interrupteur Sectionneur'.
 
 ### Ajouts
 
@@ -231,7 +231,7 @@
 
 ### Corrections
 
-- Affichage de la boite de dialogue 'Nouveau projet' lorsque l'utilisateur arrive de tiquettes.fr.
+- Affichage de la boite de dialogue 'Nouveau projet' lorsque l'utilisateur arrive de vpanel.fr.
 - Possibilité d'importer un projet directement depuis la boite de dialogue 'Nouveau projet'.
 - Correction d'un bug permettant les doublons pour les identifiants de chaque module, cassant la génération du schéma.
 
@@ -247,7 +247,7 @@
 
 ### Corrections
 
-- Changement de licence. Tiquettes passe désormais à la licence AGPL v3.
+- Changement de licence. Vpanel passe désormais à la licence AGPL v3.
 - Mise à jour de tous les packages de l'application.
 - Amélioration globale de l'UI.
 - Amélioration de l'ergonomie.
@@ -311,7 +311,7 @@
 
 - Ajout d'une nomenclature automatique aux projets.
 - Ajout d'options pour l'impression.
-- Compatibilité PWA. Tiquettes est désormais installable, telle une application native, sur les appareils compatibles.
+- Compatibilité PWA. Vpanel est désormais installable, telle une application native, sur les appareils compatibles.
 
 
 ## [1.5.0] - 2024-06-08

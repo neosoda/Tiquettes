@@ -1,22 +1,22 @@
-# Tiquettes
+# Vpanel
 
 Générateur d'étiquettes pour tableaux / armoires électriques.
 
 ---
 
 
-[<img alt="URL" src="https://img.shields.io/badge/🠊-https://www.tiquettes.fr-%3CCOLOR%3E?style=for-the-badge&color=darkcyan&labelColor=darkcyan">](https://www.tiquettes.fr)
+[<img alt="URL" src="https://img.shields.io/badge/🠊-https://www.vpanel.fr-%3CCOLOR%3E?style=for-the-badge&color=darkcyan&labelColor=darkcyan">](https://www.vpanel.fr)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T61BPPX0)
 
 <img alt="Création" src="https://img.shields.io/badge/Date%20de%20création-26/05/2024-%3CCOLOR%3E?style=flat&color=fff">&nbsp;&nbsp;
-<img alt="Version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.tiquettes.fr%2Fapp%2Finfos.json&query=%24.version&label=Version%20actuelle&color=%23fff">&nbsp;&nbsp;
+<img alt="Version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.vpanel.fr%2Fapp%2Finfos.json&query=%24.version&label=Version%20actuelle&color=%23fff">&nbsp;&nbsp;
 <img alt="Licence" src="https://img.shields.io/badge/Licence-AGPL v3-%3CCOLOR%3E?style=flat&color=fff"><br />
-<img alt="Auteur" src="https://img.shields.io/badge/Auteur-Christophe LEMOINE <contact (at) tiquettes (dot) fr>-%3CCOLOR%3E?style=flat&color=fff"><br />
+<img alt="Auteur" src="https://img.shields.io/badge/Auteur-Neosoda <contact (at) vpanel (dot) fr>-%3CCOLOR%3E?style=flat&color=fff"><br />
 
 <img alt="Temps réel" src="https://img.shields.io/badge/Quelques%20chiffres%20en%20temps%20r%C3%A9el-darkcyan">&nbsp;&nbsp;
-<img alt="Projets" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.tiquettes.fr%2Fapp%2Fapi%2Fresume.php%3Fm%3Dproduction&query=%24.create&label=Projets&color=%23fff">&nbsp;&nbsp;
-<img alt="Impressions" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.tiquettes.fr%2Fapp%2Fapi%2Fresume.php%3Fm%3Dproduction&query=%24.print&label=Impressions&color=%23fff">&nbsp;&nbsp;
+<img alt="Projets" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.vpanel.fr%2Fapp%2Fapi%2Fresume.php%3Fm%3Dproduction&query=%24.create&label=Projets&color=%23fff">&nbsp;&nbsp;
+<img alt="Impressions" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwww.vpanel.fr%2Fapp%2Fapi%2Fresume.php%3Fm%3Dproduction&query=%24.print&label=Impressions&color=%23fff">&nbsp;&nbsp;
 
 
 ---
@@ -25,25 +25,25 @@ Générateur d'étiquettes pour tableaux / armoires électriques.
 
 ### Une question ? Des idées à partager / proposer ?
 
-Venez dans le nouvel **[espace de discussions](https://github.com/pantaflex44/Tiquettes/discussions)** !
+Venez dans le nouvel **[espace de discussions](https://github.com/neosoda/Vpanel/discussions)** !
 
 ### A contrario, vous avez découvert un bug, un défaut de fonctionnement ?
 
-Venez plutôt le déclarer dans **[l'espace dédié](https://github.com/pantaflex44/Tiquettes/issues)** :-)
+Venez plutôt le déclarer dans **[l'espace dédié](https://github.com/neosoda/Vpanel/issues)** :-)
 
 ### Vous êtes plus "réseaux sociaux" ?
 
-Retrouvez **Tiquettes** directement sur **[sa page Facebook](https://www.facebook.com/profile.php?id=61563821616548)** !
+Retrouvez **Vpanel** directement sur **[sa page Facebook](https://www.facebook.com/profile.php?id=61563821616548)** !
 
 ### Tester en avant première
 
-Vous pouvez tester Tiquettes en cours de développement avant la sortie officielle de sa nouvelle version en utilisant ce lien: **https://www.tiquettes.fr/dev/** ;-)
+Vous pouvez tester Vpanel en cours de développement avant la sortie officielle de sa nouvelle version en utilisant ce lien: **https://www.vpanel.fr/dev/** ;-)
 
 ---
 
-# Bienvenue dans la documentation de Tiquettes
+# Bienvenue dans la documentation de Vpanel
 
-![Tiquettes](https://github.com/pantaflex44/Tiquettes/blob/main/docs/_sample.png?raw=true)
+![Vpanel](https://github.com/neosoda/Vpanel/blob/main/docs/_sample.png?raw=true)
 
 ## Le projet
 
@@ -54,15 +54,15 @@ Deux possibilités proposées dans la barre à outils :
 - Créer un nouveau projet
 - Importer un projet sauvegardé
 
-![Nouveau projet](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_project_actions1.png)
+![Nouveau projet](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_project_actions1.png)
 
 Ou bien même, directement dans la fenêtre de bienvenue :
 
-![Nouveau projet](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_welcome.png?raw=true)
+![Nouveau projet](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_welcome.png?raw=true)
 
 ### Créer un nouveau projet par défaut
 
-![Nouveau projet](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_new_project.png?raw=true)
+![Nouveau projet](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_new_project.png?raw=true)
 
 L'application définie automatiquement un tableau électrique de 4 rangées, 13 modules par rangée avec une hauteur des
 étiquettes de 30mm.
@@ -74,7 +74,7 @@ Le nouveau tableau s'ajustera automatiquement.
 
 ### Importer un projet sauvegardé
 
-Tiquettes vous propose d'importer et d'exporter votre travail pour l'archiver ou y retravailler ultérieurement. Une
+Vpanel vous propose d'importer et d'exporter votre travail pour l'archiver ou y retravailler ultérieurement. Une
 sauvegarde automatique de votre session de travail est aussi intégrée au système.
 
 Pour importer un projet, cliquez sur le bouton `Importer` puis chargez le fichier correspondant à votre projet.
@@ -84,13 +84,13 @@ Immédiatement, celui-ci s'affichera dans la zone de travail!
 ---
 > <b>🛈 Bon à savoir</b>
 >
-> Pour s'adapter au mieux à la résolution de vos écrans, l'application possède une zone de travail fixe et définie pour une enveloppe de 13 modules. Toutefois, si vous possédez un écran plus grand ou si vous travaillez avec une plus grande résolution, Tiquettes.fr vous propose d'adapter la zone de travaille automatiquement en fonction du nombre de modules par rangée.
+> Pour s'adapter au mieux à la résolution de vos écrans, l'application possède une zone de travail fixe et définie pour une enveloppe de 13 modules. Toutefois, si vous possédez un écran plus grand ou si vous travaillez avec une plus grande résolution, Vpanel.fr vous propose d'adapter la zone de travaille automatiquement en fonction du nombre de modules par rangée.
 >
 > <small>**Taille de la zone de travail par défaut**</small><br />
->![Taille de la zone de travail par défaut](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_autoResizeOff.png?raw=true)
+>![Taille de la zone de travail par défaut](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_autoResizeOff.png?raw=true)
 >
 > <small>**Taille de la zone de travail avec redimensionnement automatique**</small><br />
->![Taille de la zone de travail par défaut](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_autoResizeOn.png?raw=true)
+>![Taille de la zone de travail par défaut](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_autoResizeOn.png?raw=true)
 ---
 
 
@@ -100,7 +100,7 @@ Une fois le projet chargé, vous retrouverez un résumé de ses propriétés au-
 
 
 
-![Nouveau projet](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_project_resume.png?raw=true)
+![Nouveau projet](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_project_resume.png?raw=true)
 
 Sous le nom du projet, vous retrouvez le numéro de la dernière version exportée, les caractéristiques de l'enveloppe,
 ainsi que dans l'ordre, la date de création et la date de dernière modification.
@@ -110,13 +110,13 @@ ainsi que dans l'ordre, la date de création et la date de dernière modificatio
 > Pour modifier le nom du projet, cliquez dessus puis validez les modifications avec la touche `Entrée` de votre
 > clavier. A contrario, la touche `Echap` annule les modifications.
 >
-> ![Modifier le nom du projet](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_edit_project_name.png?raw=true)
+> ![Modifier le nom du projet](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_edit_project_name.png?raw=true)
 
 Puis, vous retrouvez les dates de travail ainsi que le descriptif technique.
 
 ## L'éditeur
 
-![Éditeur](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_editeur.png?raw=true)
+![Éditeur](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_editeur.png?raw=true)
 
 ### Descriptif
 
@@ -128,7 +128,7 @@ celui-ci pour poursuivre son expansion. Idem pour le déplacer, seulement possib
 
 ### Menu contextuel du haut
 
-![Menu contextuel du haut](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_top.png?raw=true)
+![Menu contextuel du haut](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_top.png?raw=true)
 
 Le symbole `+` vous permet d'agrandir le module d'une largeur sur sa droite.
 
@@ -140,7 +140,7 @@ Le symbole `→` vous permet de déplacer le module d'une position sur la droite
 
 ### Menu contextuel du bas
 
-![Menu contextuel du bas](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_bottom.png?raw=true)
+![Menu contextuel du bas](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_bottom.png?raw=true)
 
 Le symbole `Crayon` (ou la touche `Entrée` du clavier) permet d'éditer le module en question.
 
@@ -150,21 +150,21 @@ Le symbole suivant permet de copier le module. Cela permet de copier, le libell�
 module pour le dupliquer ailleurs sur le tableau. Une fois le module mis dans le presse papier, l'application vous met
 en avant les emplacements disponibles en fonction de la largeur initiale du module copié.
 
-![Copier](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_copy.png?raw=true)
+![Copier](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_copy.png?raw=true)
 
 Exemple d'emplacements disponibles :
 
-![Coller aux emplacements disponibles](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_pasteall.png?raw=true)
+![Coller aux emplacements disponibles](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_pasteall.png?raw=true)
 
 Cliquer sur l'icône pour dupliquer / d&placer le module à cet emplacement.
 
 Pour annuler, soit, cliquer sur l'icône ci-dessous, soit appuyer sur la touche `Echap`:
 
-![Annuler](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_paste_cancel.png?raw=true)
+![Annuler](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_paste_cancel.png?raw=true)
 
 Et voilà!
 
-![Collé!](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_pasted.png?raw=true)
+![Collé!](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_pasted.png?raw=true)
 
 ### Manipuler les rangées
 
@@ -172,11 +172,11 @@ Au cours de l'édition de votre planche d'étiquette, il peut parfois être util
 
 Pour insérer une rangée, cliquez sur le raccourci présent entre chacune des rangées existantes:
 
-![Insérer une rangée](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_add_row.png?raw=true)
+![Insérer une rangée](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_add_row.png?raw=true)
 
 Pour supprimer une rangée, cliquez sur l'icône `Corbeille`, à gauche du nom de la rangée souhaitée:
 
-![Supprimer une rangée](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_delete_row.png?raw=true)
+![Supprimer une rangée](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_delete_row.png?raw=true)
 
 #### Raccourcis claviers / souris
 
@@ -194,7 +194,7 @@ et les modules.
 
 > <b>🛈 Bon à savoir</b>
 >
-> ![Auto ID](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_auto_id.png?raw=true)
+> ![Auto ID](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_auto_id.png?raw=true)
 >
 > A tout moment, vous pouvez ré-assigner l'ensemble des identifiants votre projet en cliquant sur ce bouton (accessible
 > dans l'onglet ```Éditeur``` et ```Schéma```.
@@ -207,7 +207,7 @@ affiner sa définition.
 La partie inférieure de la fenêtre d'édition comporte une zone de démonstration, mettant en scène vos modifications en
 temps réel.
 
-![Édition d'un module](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_popup.png?raw=true)
+![Édition d'un module](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_popup.png?raw=true)
 
 - _Identifiant_ : Identifiant technique du module. Seules les lettres, chiffres et le caractère point sont acceptés.
 - _Libellé_ : Une très courte description du module. Les retours à la ligne sont pris en compte.
@@ -215,7 +215,7 @@ temps réel.
 
 > <b>🛈 Bon à savoir</b>
 >
-> ![Auto Next ID](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_next_id.png?raw=true)
+> ![Auto Next ID](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_next_id.png?raw=true)
 >
 > Il est parfois difficile de suivre les identifiants déjà utilisés par les précédents modules, c'est pourquoi un bouton
 > est à votre disposition pour trouver automatiquement le dernier identifiant libre correspondant à la fonction du module
@@ -231,116 +231,116 @@ temps réel.
 
 Une liste de pictogrammes vous est proposée.
 
-![Liste des pictogrammes](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_icon_selector.png?raw=true)
+![Liste des pictogrammes](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_icon_selector.png?raw=true)
 
 Par ailleurs, vous pouvez aussi rechercher un picto, directement en écrivant une partie de sa description. La liste se
 mettra automatiquement à jour.
 
-![Rechercher un pictogramme](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_icon_selector_search.png?raw=true)
+![Rechercher un pictogramme](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_icon_selector_search.png?raw=true)
 
 ### Les groupes
 
 Il est parfois plus simple de regrouper les modules par pièces ou par zones par exemple. Pour ce faire, l'application vous propose de définir une couleur de groupe.
 
-![Définir une couleur](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_popup_color.png?raw=true)
+![Définir une couleur](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_popup_color.png?raw=true)
 
 Cette couleur pourra être affichée sur les étiquettes en fonction de la définition du thème sélectionné. Bien évidement, vous pouvez ajuster cet affichage en modifiant les paramètres du thème en cours ou créer votre propre thème !
 
-![Choisir une couleur](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_custom_editor_color.png?raw=true)
+![Choisir une couleur](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_custom_editor_color.png?raw=true)
 
 ## Décorer ses étiquettes
 
-![Sélection du thème](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_selector.png?raw=true)
+![Sélection du thème](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_selector.png?raw=true)
 
 A chacun son style, à chaque coffret sa marque, quoi de mieux que de pouvoir décorer ses étiquettes au style de la
 marque du matériel installé?
 
 Sélectionnez le thème de votre choix puis admirez le style de vos étiquettes changez en temps réel!
 
-![Sélection du thème](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_selector2.png?raw=true)
+![Sélection du thème](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_selector2.png?raw=true)
 
 - Thème Simple
 
-![Thème Simple](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_simple.png?raw=true)
+![Thème Simple](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_simple.png?raw=true)
 
 - Thème Minimal
 
-![Thème Minimal](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_minimal.png?raw=true)
+![Thème Minimal](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_minimal.png?raw=true)
 
 - Thème Schneider - Standard
 
-![Thème Schneider - Standard](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_schn_std.png?raw=true)
+![Thème Schneider - Standard](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_schn_std.png?raw=true)
 
 - Thème Schneider - Alternatif
 
-![Thème Schneider - Alternatif](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_schn_alt.png?raw=true)
+![Thème Schneider - Alternatif](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_schn_alt.png?raw=true)
 
 - Thème Schneider - Nouveau format - Logements
 
-![Thème Schneider - Nouveau format - Logements](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_schn_lgt.png?raw=true)
+![Thème Schneider - Nouveau format - Logements](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_schn_lgt.png?raw=true)
 
 - Thème Schneider - Nouveau format - Tertiaire
 
-![Thème Schneider - Nouveau format - Tertiaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_schn_ter.png?raw=true)
+![Thème Schneider - Nouveau format - Tertiaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_schn_ter.png?raw=true)
 
 - Thème Hager - Ancien format - Logements
 
-![Thème Hager - Ancien format - Logements](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_hgr_algt.png?raw=true)
+![Thème Hager - Ancien format - Logements](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_hgr_algt.png?raw=true)
 
 - Thème Hager - Ancien format - Tertiaire
 
-![Thème Hager - Ancien format - Tertiaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_hgr_ater.png?raw=true)
+![Thème Hager - Ancien format - Tertiaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_hgr_ater.png?raw=true)
 
 - Thème Hager - Nouveau format - Logements
 
-![Thème Hager - Nouveau format - Logements](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_hgr_nlgt.png?raw=true)
+![Thème Hager - Nouveau format - Logements](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_hgr_nlgt.png?raw=true)
 
 - Thème Hager - Nouveau format - Tertiaire
 
-![Thème Hager - Nouveau format - Tertiaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_hgr_nter.png?raw=true)
+![Thème Hager - Nouveau format - Tertiaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_hgr_nter.png?raw=true)
 
 - Thème Legrand - Monochrome - Logements
 
-![Thème Legrand - Monochrome - Logements](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_lgd_mlgt.png?raw=true)
+![Thème Legrand - Monochrome - Logements](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_lgd_mlgt.png?raw=true)
 
 - Thème Legrand - Monochrome - Tertiaire
 
-![Thème Legrand - Monochrome - Tertiaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_lgd_mter.png?raw=true)
+![Thème Legrand - Monochrome - Tertiaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_lgd_mter.png?raw=true)
 
 - Thème Legrand - Couleur - Logements
 
-![Thème Legrand - Couleur - Logements](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_lgd_clgt.png?raw=true)
+![Thème Legrand - Couleur - Logements](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_lgd_clgt.png?raw=true)
 
 - Thème Legrand - Couleur - Tertiaire
 
-![Thème Legrand - Couleur - Tertiaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_lgd_cter.png?raw=true)
+![Thème Legrand - Couleur - Tertiaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_lgd_cter.png?raw=true)
 
 ### Personnaliser la décoration
 
-Tiquettes vous propose de décorer plus finement vos étiquettes en créant votre propre thème!
+Vpanel vous propose de décorer plus finement vos étiquettes en créant votre propre thème!
 
-![Thème personnalisé](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_custom_button.png?raw=true)
+![Thème personnalisé](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_custom_button.png?raw=true)
 
-![Thème personnalisé](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_theme_custom_editor.png?raw=true)
+![Thème personnalisé](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_theme_custom_editor.png?raw=true)
 
 Vous pouvez exporter vos thèmes, et même importer les créations d'autrui !
 
 ### Bibliothèque de thèmes
 
-Tiquettes.fr propose une bibliothèque de thèmes que vous pouvez importer pour personnaliser vos étiquettes. Rendez-vous
-à la [bibliothèque](https://www.tiquettes.fr/themes.php) pour découvrir et télécharger les créations artistiques proposées ;-)
+Vpanel.fr propose une bibliothèque de thèmes que vous pouvez importer pour personnaliser vos étiquettes. Rendez-vous
+à la [bibliothèque](https://www.vpanel.fr/themes.php) pour découvrir et télécharger les créations artistiques proposées ;-)
 
 ## Schéma unifilaire
 
 ### Édition des caractéristiques
 
-Depuis la version 2.0.0, Tiquettes propose la génération semi-automatique d'un schéma unifilaire représentatif du
+Depuis la version 2.0.0, Vpanel propose la génération semi-automatique d'un schéma unifilaire représentatif du
 tableau électrique conçu par vos soins.
 
 La fenêtre d’édition d'un module possède désormais un nouvel onglet ```Schéma``` permettant de définir les
 caractéristiques techniques du module:
 
-![Édition des caractéristiques techniques](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_popup_schema.png?raw=true)
+![Édition des caractéristiques techniques](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_popup_schema.png?raw=true)
 
 - _Fonction_ : Fonction technique du module : Interrupteur différentiel, Disjoncteur, etc.
 - _Parent_ : Module parent dont dépend le module en cours d'édition. Par exemple, ce disjoncteur dépend d'un module
@@ -361,23 +361,23 @@ Je souhaite alimenter une ampoule qui devra être commandée par un télérupteu
 
 Voici un schéma résumé:
 
-![Asservissement simple](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_schema_asserv_simple.png?raw=true)
+![Asservissement simple](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_schema_asserv_simple.png?raw=true)
 
 Le disjoncteur Q1 protège la bobine du télérupteur KC1. Le disjoncteur Q2 protège l'éclairage couloir, le télérupteur KC1 asservi le disjoncteur Q2.
 
-![Asservissement simple - Propriétés](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_props_asserv_simple.png?raw=true)
+![Asservissement simple - Propriétés](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_props_asserv_simple.png?raw=true)
 
 Vous remarquerez le choix du type d'asservissement. Dans notre exemple, le disjoncteur Q2 ne protège que le circuit 'Eclairage couloir', donc c'est un asservissement total.
 
 Autre exemple. Nous souhaitons que le disjoncteur Q2 protège aussi le circuit d'éclairage Salon.
 
-![Asservissement double](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_schema_asserv_double.png?raw=true)
+![Asservissement double](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_schema_asserv_double.png?raw=true)
 
 Pour ce faire, dans les propriétés du disjoncteur Q2, nous remplaçons le libellé 'Couloir' par 'Salon' puis dans les propriétés du schéma, nous indiquons un asservissement partiel.
 
-![Asservissement double - Propriétés](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_props_asserv_double.png?raw=true)
+![Asservissement double - Propriétés](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_props_asserv_double.png?raw=true)
 
-Et voila! La magie de Tiquettes.fr à encore opérée. :-)
+Et voila! La magie de Vpanel.fr à encore opérée. :-)
 
 
 ### Génération du schéma unifilaire
@@ -386,11 +386,11 @@ La génération dépend à 100% des données que vous aurez renseignées lors de
 
 Le schéma généré en temps réel est accessible via l'onglet ```Schéma``` du tableau de bord :
 
-![Schéma unifilaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_schema.png?raw=true)
+![Schéma unifilaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_schema.png?raw=true)
 
 > <b>🛈 Bon à savoir</b>
 >
-> ![Auto ID](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_auto_id.png?raw=true)
+> ![Auto ID](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_auto_id.png?raw=true)
 >
 > A tout moment, vous pouvez ré-assigner l'ensemble des identifiants votre projet en cliquant sur ce bouton (accessible
 > dans l'onglet ```Éditeur``` et ```Schéma```.
@@ -398,32 +398,32 @@ Le schéma généré en temps réel est accessible via l'onglet ```Schéma``` du
 
 Pour éditer un module, il suffit juste de cliquer dessus ;-)
 
-![Schéma unifilaire](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_schema_editor.png?raw=true)
+![Schéma unifilaire](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_schema_editor.png?raw=true)
 
 Au-dessus du schéma vous retrouverez l'espace ```barre à outils``` vous proposant dans cet onglet, différents réglages.
 
 Pour commencer, vous avez la possibilité d'ajouter un ```Disjoncteur de branchement``` à votre schéma. Vous pouvez
 l'activer ou le désactiver en utilisant cette
-icône ![Disjoncteur de branchement](https://github.com/pantaflex44/Tiquettes/blob/main/docs/_icon_db.svg?raw=true).
+icône ![Disjoncteur de branchement](https://github.com/neosoda/Vpanel/blob/main/docs/_icon_db.svg?raw=true).
 Différents réglages sont disponibles pour s'adapter au mieux à votre besoin.
 
 S'ensuit la possibilité, via un clic sur cette
-icône ![Bornier de terre](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_icon_ground.svg?raw=true),
+icône ![Bornier de terre](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_icon_ground.svg?raw=true),
 d'ajouter un bornier / ligne de terre au schéma.
 
-L'icône ![Moniteur](https://github.com/pantaflex44/Tiquettes/blob/main/docs/_icon_monitor.svg?raw=true) permet d'activer
+L'icône ![Moniteur](https://github.com/neosoda/Vpanel/blob/main/docs/_icon_monitor.svg?raw=true) permet d'activer
 ou non le <a href="#moniteur-de-surveillance">Moniteur de surveillance</a>.
 
 ## Moniteur de surveillance
 
 Certains onglets, se voient ajouté dans leur barre à outils, un bouton d'activation du moniteur de
-surveillance ![Moniteur](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_icon_monitor.svg?raw=true).
+surveillance ![Moniteur](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_icon_monitor.svg?raw=true).
 
-Depuis la version 2.0.0 de l'application, Tiquettes vous propose une relative détection des erreurs dans votre projet.
+Depuis la version 2.0.0 de l'application, Vpanel vous propose une relative détection des erreurs dans votre projet.
 Ces "erreurs", correspondent à des règles définies dans la norme NFC 15-100 à l'instant T. Vous pouvez bien évidement
 désactiver cette surveillance à tout moment.
 
-![Surveillance - Aucun problème détecté](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_monitor_ok.png?raw=true) ![Surveillance - Erreur détectés](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_monitor_errors.png?raw=true)
+![Surveillance - Aucun problème détecté](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_monitor_ok.png?raw=true) ![Surveillance - Erreur détectés](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_monitor_errors.png?raw=true)
 
 Le moniteur surveillera l'application des règles suivantes (NFC 15-100 09/2024) :
 
@@ -436,25 +436,25 @@ Le moniteur surveillera l'application des règles suivantes (NFC 15-100 09/2024)
   au schéma).
 - etc.
 
-![Surveillance - Exemple d'erreur](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_monitor_errors_details.png?raw=true)
+![Surveillance - Exemple d'erreur](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_monitor_errors_details.png?raw=true)
 
 La surveillance, lors de la conception de votre projet, s'améliorera avec le temps et de nouvelles règles s'ajouteront
 au fur et à mesure des prochaines versions!
 
 ## Nomenclature / Résumé
 
-Tiquettes vous propose de résumer votre projet.
+Vpanel vous propose de résumer votre projet.
 
 La nomenclature est générée automatiquement en fonction des définitions indiquées dans l'éditeur.
 
-![Nomenclature](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_summary.png?raw=true)
+![Nomenclature](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_summary.png?raw=true)
 
 La barre à outils regroupe cette fois, la liste des colonnes que vous souhaitez afficher. Ce paramètre est
 automatiquement associé à votre projet, ce qui signifie qu'il sera, lui aussi, exporté.
 
 ## Immortaliser son travail
 
-![Immortaliser](https://raw.githubusercontent.com/pantaflex44/Tiquettes/refs/heads/main/docs/_actions.png?raw=true)
+![Immortaliser](https://raw.githubusercontent.com/neosoda/Vpanel/refs/heads/main/docs/_actions.png?raw=true)
 
 Une fois vos étiquettes réalisées, vous pourrez les imprimer en cliquant sur le bouton adéquat.
 
@@ -462,10 +462,10 @@ Le mode `paysage` ainsi que le format A4 sont sélectionnés par défaut.
 
 > <b>🛈 Bon à savoir</b>
 >
-> Depuis la version 2.2.0, **Tiquettes vous propose l'impression en PDF de vos projets**. Imprimer en PDF permet
+> Depuis la version 2.2.0, **Vpanel vous propose l'impression en PDF de vos projets**. Imprimer en PDF permet
 > d'améliorer nettement la qualité de la mise en page de votre projet. Par ailleurs, imprimer en PDF permet de passer
 > outre les manquements et problèmes provoqués par certains navigateurs qui ne respectent pas forcément toutes les
-> possibilités du rendu proposé par Tiquettes.
+> possibilités du rendu proposé par Vpanel.
 >
 > **Imprimer en PDF nécessite d'être vigilant au niveau des propriétés de votre imprimante. Veillez à bien
 sélectionner "Taille réelle" ou "Echelle 100%" pour respecter la mise en page proposée par l'application.**
@@ -476,9 +476,9 @@ sélectionner "Taille réelle" ou "Echelle 100%" pour respecter la mise en page 
 
 # Remerciements ❤ !
 
-Au travers vos utilisations de Tiquettes, vous n'hésitez pas à me remonter des bugs, proposer de nouvelles idées, et vous m'offrez un café donc je vous en remercie fortement pour tout celà !
+Au travers vos utilisations de Vpanel, vous n'hésitez pas à me remonter des bugs, proposer de nouvelles idées, et vous m'offrez un café donc je vous en remercie fortement pour tout celà !
 
-### 🐛 Remontées de [BUGS](https://github.com/pantaflex44/Tiquettes/issues?q=is%3Aissue) (les [issues](https://github.com/pantaflex44/Tiquettes/issues?q=is%3Aissue)) , et les [Discussions](https://github.com/pantaflex44/Tiquettes/discussions)
+### 🐛 Remontées de [BUGS](https://github.com/neosoda/Vpanel/issues?q=is%3Aissue) (les [issues](https://github.com/neosoda/Vpanel/issues?q=is%3Aissue)) , et les [Discussions](https://github.com/neosoda/Vpanel/discussions)
 
 - [zoliaaz](https://github.com/zoliaaz),
 - [cnaslain](https://github.com/cnaslain)

@@ -1,6 +1,6 @@
 #!/bin/sh
 # =============================================================
-# entrypoint.sh — Tiquettes
+# entrypoint.sh — Vpanel
 # Génère les fichiers constants.*.php depuis les variables
 # d'environnement, attend la DB, puis démarre supervisord.
 # =============================================================
@@ -24,8 +24,8 @@ bool_php() {
 # ──────────────────────────────────────────────────────────────
 MYSQL_HOST="${MYSQL_HOST:-db}"
 MYSQL_PORT="${MYSQL_PORT:-3306}"
-MYSQL_BASE="${MYSQL_BASE:-tiquettes}"
-MYSQL_USER="${MYSQL_USER:-tiquettes}"
+MYSQL_BASE="${MYSQL_BASE:-vpanel}"
+MYSQL_USER="${MYSQL_USER:-vpanel}"
 MYSQL_PASS="${MYSQL_PASS:-changeme}"
 
 SMTP_HOST="${SMTP_HOST:-}"

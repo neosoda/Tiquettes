@@ -139,7 +139,7 @@ CREATE TABLE `stats_allowed_structs` (
 --
 
 INSERT INTO `stats_allowed_structs` (`id`, `key`, `description`) VALUES
-(1, 'app', 'Application Tiquettes.fr'),
+(1, 'app', 'Application Vpanel.fr'),
 (2, 'web', 'Site web de l\'application');
 
 -- --------------------------------------------------------

@@ -1,6 +1,6 @@
 {
-    "name": "tiquettes",
-    "title": "Tiquettes",
+    "name": "vpanel",
+    "title": "Vpanel",
     "description": "Générateur d'étiquettes pour tableaux et armoires électriques.",
     "version": "2.2.7",
     "keywords": [
@@ -17,12 +17,12 @@
         "hager",
         "legrand"
     ],
-    "author": "Christophe LEMOINE",
+    "author": "Neosoda",
     "license": "AGPL-3.0",
-    "homepage": "https://www.tiquettes.fr/app/",
+    "homepage": "https://www.vpanel.fr/app/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/pantaflex44/Tiquettes"
+        "url": "https://github.com/neosoda/Vpanel"
     },
     "type": "module",
     "scripts": {

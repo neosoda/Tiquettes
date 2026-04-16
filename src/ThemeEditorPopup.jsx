@@ -1,6 +1,6 @@
 /**
- Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- Copyright (C) 2024-2026 Christophe LEMOINE
+ Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ Copyright (C) 2024-2026 Neosoda
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as published by
@@ -687,7 +687,7 @@ export default function ThemeEditorPopup({
             </div>
 
             <div className="tep-extras">
-                <b>⁛</b> Télécharger de <a href="https://www.tiquettes.fr/themes.php" target={'_blank'}
+                <b>⁛</b> Télécharger de <a href="https://www.vpanel.fr/themes.php" target={'_blank'}
                     rel={'noopener'}>nouveaux thèmes</a> pour embellir ses étiquettes !
             </div>
         </div>

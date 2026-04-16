@@ -1,16 +1,16 @@
-# Tiquettes.fr, Documentation de l'API
+# Vpanel.fr, Documentation de l'API
 
 
 ## Manipulation de l'application
 
 ### Lance l'application et ouvre la boite de dialogue de bienvenue
 
-```GET https://www.tiquettes.fr/app/?enjoy```
+```GET https://www.vpanel.fr/app/?enjoy```
 
 
 ### Lance l'application et ouvre la boite de dialogue "nouveau projet"
 
-```GET https://www.tiquettes.fr/app/?new[&OPTIONS]```
+```GET https://www.vpanel.fr/app/?new[&OPTIONS]```
 
 > <u>Les options</u> :
 > - *t=**Nouveau%20projet***    : Titre du nouveau projet 
@@ -18,19 +18,19 @@
 > - *s=**13***                  : Nombre de modules par rangée (13, 18 ou 24)
 > - *h=**29***                  : Hauteur en mm de chaque rangée (10 à 100 mm)
 >
-> <u>eg</u>: https://www.tiquettes.fr/app/?new&t=Nouveau%20projet&r=4&s=13&h=29
+> <u>eg</u>: https://www.vpanel.fr/app/?new&t=Nouveau%20projet&r=4&s=13&h=29
 
 
 ### Importer un projet depuis une source extérieure
 
-```GET https://www.tiquettes.fr/app/?import&data={$DATA}```
+```GET https://www.vpanel.fr/app/?import&data={$DATA}```
 
 > *{$DATA}* : Fichier JSON d'un projet, encodé en BASE64
 
 
 ### Imprimer un projet depuis une source extérieure
 
-```GET https://www.tiquettes.fr/app/?print&data={$DATA}[&OPTIONS]```
+```GET https://www.vpanel.fr/app/?print&data={$DATA}[&OPTIONS]```
 
 > *{$DATA}* : Fichier JSON d'un projet, encodé en BASE64
 
@@ -47,4 +47,4 @@
 > - *hpf=[**A4**|A3]*               : Format papier du schéma unifilaire
 > - *spf=[**A4**|A3]*               : Format papier de la nomenclature
 >
-> <u>eg</u>: https://www.tiquettes.fr/app/?print&data={$DATA}&fp=true&fm=false&vl=true&vh=false&vs=false&ap=false&lcl=true&pc=false&lpf=A4&hpf=A4&spf=A4
+> <u>eg</u>: https://www.vpanel.fr/app/?print&data={$DATA}&fp=true&fm=false&vl=true&vh=false&vs=false&ap=false&lcl=true&pc=false&lpf=A4&hpf=A4&spf=A4

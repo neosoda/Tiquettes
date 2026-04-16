@@ -1,6 +1,6 @@
 {
-    "name": "tiquettes",
-    "title": "Tiquettes",
+    "name": "vpanel",
+    "title": "Vpanel",
     "description": "Générateur d'étiquettes pour tableaux et armoires électriques.",
     "keywords": [
         "étiquette",
@@ -16,12 +16,12 @@
         "hager",
         "legrand"
     ],
-    "author": "Christophe LEMOINE",
+    "author": "Neosoda",
     "license": "AGPL-3.0",
-    "homepage": "https://www.tiquettes.fr/app/",
+    "homepage": "https://www.vpanel.fr/app/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/pantaflex44/Tiquettes"
+        "url": "https://github.com/neosoda/Vpanel"
     },
     "changelog": {
         "2.2.7": {
@@ -32,7 +32,7 @@
                         "text": "Correction d'un bug lors de la ré-identification automatique des modules",
                         "from": {
                             "name": "Issue #67",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/67"
+                            "link": "https://github.com/neosoda/Vpanel/issues/67"
                         }
                     }
                 ],
@@ -41,21 +41,21 @@
                         "text": "Redimmensionnement de la zone de travail",
                         "from": {
                             "name": "Discussion #68",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/68"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/68"
                         }
                     },
                     {
                         "text": "Ajouter des lignes vides au début des libellés des étiquettes.",
                         "from": {
                             "name": "Issue #66",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/66"
+                            "link": "https://github.com/neosoda/Vpanel/issues/66"
                         }
                     },
                     {
                         "text": "Ajout de la possibilité d'échanger 2 modules en lieu et place.",
                         "from": {
                             "name": "Discussion #65",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/65"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/65"
                         }
                     }
                 ]
@@ -66,17 +66,17 @@
             "actions": {
                 "patches": [
                     {
-                        "text": "Correction typographique Tiquettes/src/EditorCurrentSelector.jsx par https://github.com/mmnlfrrr.",
+                        "text": "Correction typographique Vpanel/src/EditorCurrentSelector.jsx par https://github.com/mmnlfrrr.",
                         "from": {
                             "name": "PR #54",
-                            "link": "https://github.com/pantaflex44/Tiquettes/pull/54"
+                            "link": "https://github.com/neosoda/Vpanel/pull/54"
                         }
                     },
                     {
                         "text": "Correction d'un bug empechant l'affichage du sélecteur de couleur de groupe.",
                         "from": {
                             "name": "Issue #47",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/47"
+                            "link": "https://github.com/neosoda/Vpanel/issues/47"
                         }
                     },
                     {
@@ -86,7 +86,7 @@
                         "text": "Modification de la déclaration d'asservissement d'un module. Il est désormais possible de définir un asservissement partiel, permettant d'indiquer qu'un module peut non seulement être asservi par un contacteur mais aussi alimenter directement les autres sources.",
                         "from": {
                             "name": "Discussion #43",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/43"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/43"
                         }
                     }
                 ],
@@ -101,7 +101,7 @@
                         "text": "Ajout d'un nouveau pictogramme: 'Réseau électrique'.",
                         "from": {
                             "name": "Discussion #44",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/44"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/44"
                         }
                     }
                 ]
@@ -121,7 +121,7 @@
                         "text": "Correction du moteur de rendu PDF pour la création d'étiquettes de très petites hauteurs.",
                         "from": {
                             "name": "Issue #40",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/40"
+                            "link": "https://github.com/neosoda/Vpanel/issues/40"
                         }
                     },
                     {
@@ -137,7 +137,7 @@
                         "text": "Suppression de la limite de 3 lignes lors de l'impression des propriétés d'un module pour former la nomenclature.",
                         "from": {
                             "name": "Issue #28",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/28"
+                            "link": "https://github.com/neosoda/Vpanel/issues/28"
                         }
                     }
                 ],
@@ -146,7 +146,7 @@
                         "text": "Nouvelle propriété permettant de renseigner la phase utilisée lors d'une distribution monophasée à partir d'un parent triphasé.",
                         "from": {
                             "name": "Issue #41",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/41"
+                            "link": "https://github.com/neosoda/Vpanel/issues/41"
                         }
                     },
                     {
@@ -156,14 +156,14 @@
                         "text": "Nouvelle fonctionnalité permettant le choix du format d'impression pour les pages relatives aux étiquettes, schéma unifilaire et nomenclature. 2 choix possibles: A4 et A3.",
                         "from": {
                             "name": "Issue #38",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/38"
+                            "link": "https://github.com/neosoda/Vpanel/issues/38"
                         }
                     },
                     {
                         "text": "Réponse à une proposition, nouvelle fonctionnalité qui permet d'associer un module à un groupe via une couleur. Couleur utilisée (si disponible et si demandée) par les thèmes.",
                         "from": {
                             "name": "Discussion #36",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/36"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/36"
                         }
                     }
                 ]
@@ -215,7 +215,7 @@
                         "text": "Possibilité d'imprimer ou non la page de garde.",
                         "from": {
                             "name": "Discussion #29",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/29#discussioncomment-13903864"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/29#discussioncomment-13903864"
                         }
                     },
                     {
@@ -252,7 +252,7 @@
                         "text": "Ajout de nouvelles propriétés d'impression."
                     },
                     {
-                        "text": "Ajout de quelques statistiques accessibles publiquement à l'adresse : https://www.tiquettes.fr/stats.php"
+                        "text": "Ajout de quelques statistiques accessibles publiquement à l'adresse : https://www.vpanel.fr/stats.php"
                     }
                 ]
             }
@@ -275,14 +275,14 @@
                         "text": "Grosse nouveauté, ajout de la fonction 'Imprimer au format PDF' dans le menu d'impression d'un projet. Cette nouvelle fonctionnalité permet de résoudre les problèmes de compatibilité avec certains navigateurs basés sur Gecko (Firefox, etc.) et Webkit (Safari, etc.). Une fois la case cochée, le projet est converti en un fichier PDF pour être imprimé correctement en toutes circonstances !",
                         "from": {
                             "name": "Issue #8",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/8"
+                            "link": "https://github.com/neosoda/Vpanel/issues/8"
                         }
                     },
                     {
-                        "text": "Nouveau service externe de conversion d'un projet Tiquettes (>= 2.1.5) en document PDF accessible à l'adresse : https://www.tiquettes.fr/pdf.php."
+                        "text": "Nouveau service externe de conversion d'un projet Vpanel (>= 2.1.5) en document PDF accessible à l'adresse : https://www.vpanel.fr/pdf.php."
                     },
                     {
-                        "text": "Mise à disposition d'une bibliothèque de thèmes à télécharger pour embellir ses étiquettes (https://www.tiquettes.fr/themes.php)."
+                        "text": "Mise à disposition d'une bibliothèque de thèmes à télécharger pour embellir ses étiquettes (https://www.vpanel.fr/themes.php)."
                     }
                 ],
                 "patches": [
@@ -306,7 +306,7 @@
                         "text": "Nouveaux pictogrammes:\n\t- Horloge Journaliere\n\t- Horloge Hebdomadaire\n\t- Moteur Electrique\n\t- Chargeur\n\t- Maison / Dépendance / Extension\n\t- Onduleur\n\t- Interrupteur différentiel",
                         "from": {
                             "name": "PR #21",
-                            "link": "https://github.com/pantaflex44/Tiquettes/pull/21"
+                            "link": "https://github.com/neosoda/Vpanel/pull/21"
                         }
                     }
                 ]
@@ -320,21 +320,21 @@
                         "text": "Correction d'un bug affectant la représentation correcte d'un contacteur si son parent et le disjoncteur asservi sont les mêmes (télérupteur par exemple asservissant son disjoncteur parent).",
                         "from": {
                             "name": "Discussions #17",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/17"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/17"
                         }
                     },
                     {
                         "text": "Correction des fautes d'orthographes dans les noms des icônes.",
                         "from": {
                             "name": "PR #18",
-                            "link": "https://github.com/pantaflex44/Tiquettes/pull/18"
+                            "link": "https://github.com/neosoda/Vpanel/pull/18"
                         }
                     },
                     {
                         "text": "Séparation des icônes 'Volet roulant / Store / Porte de garage' en 3 icônes indépendantes.",
                         "from": {
                             "name": "Discussion #19",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/19"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/19"
                         }
                     },
                     {
@@ -351,7 +351,7 @@
                         "text": "Nouveau pictogramme:\n\t- Pompe de relevage",
                         "from": {
                             "name": "Discussions #19",
-                            "link": "https://github.com/pantaflex44/Tiquettes/discussions/19"
+                            "link": "https://github.com/neosoda/Vpanel/discussions/19"
                         }
                     }
                 ]
@@ -365,7 +365,7 @@
                         "text": "Correction du fichier README.md.",
                         "from": {
                             "name": "PR #12",
-                            "link": "https://github.com/pantaflex44/Tiquettes/pull/12"
+                            "link": "https://github.com/neosoda/Vpanel/pull/12"
                         }
                     }
                 ],
@@ -374,7 +374,7 @@
                         "text": "Nouveau pictogramme:\n\t- Détecteur de fumées\n\t- Sonnette / Carillon\n\t- Alarme intrusion\n\t- Transformateur",
                         "from": {
                             "name": "Issue #13",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/13"
+                            "link": "https://github.com/neosoda/Vpanel/issues/13"
                         }
                     }
                 ]
@@ -388,7 +388,7 @@
                         "text": "Correction d'un bug affectant la sélection d'un pictogramme dans l'éditeur de module.",
                         "from": {
                             "name": "Issue #11",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/11"
+                            "link": "https://github.com/neosoda/Vpanel/issues/11"
                         }
                     }
                 ]
@@ -421,14 +421,14 @@
                         "text": "Prise en compte de la règle de l'amont dans le monitoring des interrupteurs différentiels.",
                         "from": {
                             "name": "Issue #9",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/9"
+                            "link": "https://github.com/neosoda/Vpanel/issues/9"
                         }
                     },
                     {
                         "text": "Modification de la représentation des contacteurs (J/N, télérupteurs, minuteries, etc). Il est désormais possible d'asservir un départ avec un contacteur précédement ajouté.",
                         "from": {
                             "name": "Issue #10",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/10"
+                            "link": "https://github.com/neosoda/Vpanel/issues/10"
                         }
                     },
                     {
@@ -471,7 +471,7 @@
                         "text": "Correction du symbole 'Interrupteur Sectionneur'.",
                         "from": {
                             "name": "Issue #7",
-                            "link": "https://github.com/pantaflex44/Tiquettes/issues/7"
+                            "link": "https://github.com/neosoda/Vpanel/issues/7"
                         }
                     }
                 ],
@@ -506,7 +506,7 @@
             "actions": {
                 "patches": [
                     {
-                        "text": "Affichage de la boite de dialogue 'Nouveau projet' lorsque l'utilisateur arrive de tiquettes.fr."
+                        "text": "Affichage de la boite de dialogue 'Nouveau projet' lorsque l'utilisateur arrive de vpanel.fr."
                     },
                     {
                         "text": "Possibilité d'importer un projet directement depuis la boite de dialogue 'Nouveau projet'."
@@ -532,7 +532,7 @@
             "actions": {
                 "patches": [
                     {
-                        "text": "Changement de licence. Tiquettes passe désormais à la licence AGPL v3."
+                        "text": "Changement de licence. Vpanel passe désormais à la licence AGPL v3."
                     },
                     {
                         "text": "Mise à jour de tous les packages de l'application."
@@ -630,7 +630,7 @@
                         "text": "Ajout d'options pour l'impression."
                     },
                     {
-                        "text": "Compatibilité PWA. Tiquettes est désormais installable, telle une application native, sur les appareils compatibles."
+                        "text": "Compatibilité PWA. Vpanel est désormais installable, telle une application native, sur les appareils compatibles."
                     }
                 ]
             }

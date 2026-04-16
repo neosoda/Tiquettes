@@ -1,5 +1,5 @@
 # =============================================================
-# Tiquettes — Docker Compose (Coolify-ready)
+# Vpanel — Docker Compose (Coolify-ready)
 # =============================================================
 # Utilisation standalone :
 #   cp .env.coolify .env.coolify.local   # ajuster les valeurs
@@ -44,8 +44,8 @@ services:
       PHP_APP_MODE: production
       MYSQL_HOST: ${MYSQL_HOST:-db}
       MYSQL_PORT: ${MYSQL_PORT:-3306}
-      MYSQL_BASE: ${MYSQL_BASE:-tiquettes}
-      MYSQL_USER: ${MYSQL_USER:-tiquettes}
+      MYSQL_BASE: ${MYSQL_BASE:-vpanel}
+      MYSQL_USER: ${MYSQL_USER:-vpanel}
       MYSQL_PASS: ${MYSQL_PASS:-changeme}
       # Hostname PHP pour la validation du Referer (sans scheme ni slash final)
       APP_HOSTNAME: ${APP_HOSTNAME:-localhost}
@@ -67,15 +67,15 @@ services:
         condition: service_healthy
     restart: unless-stopped
     networks:
-      - tiquettes_net
+      - vpanel_net
 
   # ── Base de données MySQL / MariaDB ────────────────────────
   db:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootchangeme}
-      MYSQL_DATABASE: ${MYSQL_BASE:-tiquettes}
-      MYSQL_USER: ${MYSQL_USER:-tiquettes}
+      MYSQL_DATABASE: ${MYSQL_BASE:-vpanel}
+      MYSQL_USER: ${MYSQL_USER:-vpanel}
       MYSQL_PASSWORD: ${MYSQL_PASS:-changeme}
     volumes:
       # Persistance des données
@@ -90,12 +90,12 @@ services:
       start_period: 30s
     restart: unless-stopped
     networks:
-      - tiquettes_net
+      - vpanel_net
 
 volumes:
   db_data:
     driver: local
 
 networks:
-  tiquettes_net:
+  vpanel_net:
     driver: bridge

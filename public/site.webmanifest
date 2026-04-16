@@ -1,6 +1,6 @@
 {
-    "name": "Tiquettes",
-    "short_name": "Tiquettes",
+    "name": "Vpanel",
+    "short_name": "Vpanel",
     "description": "Générateur d'étiquettes pour tableaux et armoires électriques",
     "icons": [
         {
@@ -45,7 +45,7 @@
             "sizes": "1280x640",
             "type": "image/png",
             "form_factor": "wide",
-            "label": "Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques"
+            "label": "Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques"
         }
     ]
 }

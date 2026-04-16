@@ -1,4 +1,4 @@
-# Analyse technique complète du projet **Tiquettes**
+# Analyse technique complète du projet **Vpanel**
 
 ## 1) Résumé exécutif
 

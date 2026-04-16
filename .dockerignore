@@ -1,5 +1,5 @@
 # =============================================================
-# .dockerignore — Tiquettes
+# .dockerignore — Vpanel
 # Exclut du contexte de build tout ce qui n'est pas nécessaire
 # pour construire l'image de production.
 # =============================================================
@@ -20,7 +20,7 @@ private/
 public/api/libs/constants.php
 public/api/libs/constants.development.php
 public/api/libs/constants.production.php
-public/api/tiquettes.db
+public/api/vpanel.db
 public/api/*.db
 public/api/templates/
 

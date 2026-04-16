@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- * Copyright (C) 2024-2026 Christophe LEMOINE
+ * Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ * Copyright (C) 2024-2026 Neosoda
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -500,7 +500,7 @@ define('REFERER', $rfr);
 if (MODE !== 'development') {
     // ALLOWED_HOSTS can be defined in constants.<mode>.php to extend the list
     // with the site's own hostname (required for Coolify / self-hosted deployments).
-    $defaultAllowedHosts = ['localhost', '127.0.0.1', 'www.tiquettes.fr'];
+    $defaultAllowedHosts = ['localhost', '127.0.0.1', 'www.vpanel.fr'];
     $allowedHosts = defined('ALLOWED_HOSTS') ? array_merge($defaultAllowedHosts, ALLOWED_HOSTS) : $defaultAllowedHosts;
     $hostIsAllowed = in_array(true, array_map(fn($allowedHost) => stripos(REFERER, $allowedHost, 0) !== false, $allowedHosts));
     if (!$hostIsAllowed) {
@@ -512,7 +512,7 @@ if (MODE !== 'development') {
 
 // parent referer
 $prt = trim(isset($_GET['prt']) ? stripslashes(trim(rawurldecode($_GET['prt']))) : '');
-if (stripos(strtolower($prt), 'tiquettes.fr') !== false)
+if (stripos(strtolower($prt), 'vpanel.fr') !== false)
     $prt = '';
 define('PARENT_REFERER', $prt);
 

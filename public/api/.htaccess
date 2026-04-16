@@ -4,8 +4,8 @@ IndexIgnore *
 <Files ~ "^.ht">
     require all denied
     require host localhost
-    require host www.tiquettes.fr
-    require host tiquettes.fr
+    require host www.vpanel.fr
+    require host vpanel.fr
     require ip 127.0.0.1
     Order deny,allow
     Deny from all
@@ -14,8 +14,8 @@ IndexIgnore *
 <Files "*.db">
     require all denied
     require host localhost
-    require host www.tiquettes.fr
-    require host tiquettes.fr
+    require host www.vpanel.fr
+    require host vpanel.fr
     require ip 127.0.0.1
     Order deny,allow
     Deny from all
@@ -24,8 +24,8 @@ IndexIgnore *
 <Files "*.json">
     require all denied
     require host localhost
-    require host www.tiquettes.fr
-    require host tiquettes.fr
+    require host www.vpanel.fr
+    require host vpanel.fr
     require ip 127.0.0.1
     Order deny,allow
     Deny from all

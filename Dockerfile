@@ -1,5 +1,5 @@
 # =============================================================
-# Tiquettes — Dockerfile production (Coolify-ready)
+# Vpanel — Dockerfile production (Coolify-ready)
 # =============================================================
 # Stage 1 : build du frontend React/Vite
 # Stage 2 : runtime Nginx + PHP-FPM (Alpine)
@@ -134,7 +134,7 @@ COPY public/api /var/www/api
 # ── Configuration des services ────────────────────────────────
 COPY docker/nginx.conf        /etc/nginx/http.d/default.conf
 COPY docker/supervisord.conf  /etc/supervisor/conf.d/supervisord.conf
-COPY docker/php-fpm.conf      /usr/local/etc/php-fpm.d/zzz-tiquettes.conf
+COPY docker/php-fpm.conf      /usr/local/etc/php-fpm.d/zzz-vpanel.conf
 
 # Entrypoint : génère constants.php depuis les variables d'env
 COPY docker/entrypoint.sh /entrypoint.sh

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- * Copyright (C) 2024-2026 Christophe LEMOINE
+ * Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ * Copyright (C) 2024-2026 Neosoda
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -69,7 +69,7 @@ function toFrenchDate(string $date, $withDate = true, $withHours = true): string
     return $date->format($f ?: 'd/m/Y à H:i');
 }
 
-class TiquettesPDF extends FPDF
+class VpanelPDF extends FPDF
 {
 
     const VERSION = "1.6";
@@ -699,7 +699,7 @@ class TiquettesPDF extends FPDF
         if ($this->PageNo() === 1) {
             $this->SetTextColor(170, 170, 170);
             $this->SetFont('Arial', '', 8);
-            $this->Cell(0, 10, str('tiquettes.fr ' . $tv . ' / php ' . phpversion() . ' / fpdf ' . $this::VERSION . ' / ' . (phpversion('imagick') !== false ? 'imagick ' . phpversion('imagick') : 'ImageMagick CLI')), 0, 0, 'R');
+            $this->Cell(0, 10, str('vpanel.fr ' . $tv . ' / php ' . phpversion() . ' / fpdf ' . $this::VERSION . ' / ' . (phpversion('imagick') !== false ? 'imagick ' . phpversion('imagick') : 'ImageMagick CLI')), 0, 0, 'R');
         }
 
         if ($this->subTitle !== "" && $this->PageNo() > 1) {
@@ -754,7 +754,7 @@ class TiquettesPDF extends FPDF
 
             $this->SetTextColor(170, 170, 170);
             $this->SetFont('Arial', '', 8);
-            $this->Cell(0, 10, str("tiquettes.fr {$tv}"), 0, 0, 'R');
+            $this->Cell(0, 10, str("vpanel.fr {$tv}"), 0, 0, 'R');
         }
     }
 
@@ -1463,7 +1463,7 @@ class TiquettesPDF extends FPDF
 
 if (isset($_GET['require'])) {
     header('Content-Type: application/json; charset=utf-8');
-    $requirements = TiquettesPDF::requirements();
+    $requirements = VpanelPDF::requirements();
     echo json_encode($requirements);
     exit();
 }
@@ -1570,10 +1570,10 @@ foreach ($flattenModules as $module) {
     }
 }
 
-$pdf = new TiquettesPDF();
+$pdf = new VpanelPDF();
 
-$pdf->SetAuthor('tiquettes.fr' . ' ' . $tv, true);
-$pdf->SetCreator('tiquettes.fr' . ' ' . $tv, true);
+$pdf->SetAuthor('vpanel.fr' . ' ' . $tv, true);
+$pdf->SetCreator('vpanel.fr' . ' ' . $tv, true);
 $pdf->SetTitle("Projet '" . $switchboard->prjname . "'", true);
 $pdf->SetCompression(true);
 $pdf->SetDisplayMode('real', 'default');
@@ -1594,4 +1594,4 @@ if ($printOptions->labels === true)
 if ($auto)
     $pdf->AutoPrint(true);
 
-echo $pdf->Output('I', "Projet " . $switchboard->prjname . " - Tiquettes " . $tv . ".pdf", true);
+echo $pdf->Output('I', "Projet " . $switchboard->prjname . " - Vpanel " . $tv . ".pdf", true);

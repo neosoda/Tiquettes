@@ -1,5 +1,5 @@
 -- =============================================================
--- Tiquettes — Initialisation du schéma MySQL / MariaDB
+-- Vpanel — Initialisation du schéma MySQL / MariaDB
 -- Exécuté automatiquement par MySQL au premier démarrage du
 -- conteneur (via /docker-entrypoint-initdb.d/).
 -- =============================================================

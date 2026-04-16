@@ -1,6 +1,6 @@
 /**
- Tiquettes - Générateur d'étiquettes pour tableaux et armoires électriques
- Copyright (C) 2024-2026 Christophe LEMOINE
+ Vpanel - Générateur d'étiquettes pour tableaux et armoires électriques
+ Copyright (C) 2024-2026 Neosoda
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as published by
@@ -1766,7 +1766,7 @@ function App() {
                 </>}
 
                 {space.project && <>
-                    <div style={{ fontSize: '70%', display: 'flex', flexWrap: 'nowrap', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-color)' }}>Les espaces de Tiquettes</div>
+                    <div style={{ fontSize: '70%', display: 'flex', flexWrap: 'nowrap', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-color)' }}>Les espaces de Vpanel</div>
                     <div className="button_group-separator"></div>
 
                     <button className="button_group-save_project" onClick={() => space.save(switchboard)} title="Sauvegarder le projet" disabled={space.saveState === 'saving'}>

@@ -59,12 +59,8 @@ coverage
 temp/
 tmp/
 
-# Dev-only tools (not needed in production)
-.eslintrc.cjs
+# Dev-only tools (not needed in final image, but required for build)
 .prettierrc
-vite.config.js
-app-config.json
-app-config-compiler.cjs
 test-deploy.sh
 
 # Docker files (not needed in image)

@@ -119,8 +119,8 @@ RUN if [ ! -f ./public/infos.json ]; then \
       echo '{"version":"0.1beta","name":"Vpanel","description":"Générateur d'\''étiquettes"}' > ./public/infos.json; \
     fi
 
-# Copy public JSON files
-COPY public/*.json ./public/ 2>/dev/null || true
+# Copy public JSON files (if they exist)
+RUN cp public/*.json ./public/ 2>/dev/null || true
 
 # Set proper permissions
 RUN chown -R www-data:www-data /app && \

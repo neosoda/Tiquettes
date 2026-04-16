@@ -27,6 +27,7 @@ dist-ssr
 *.sql
 # Exception : script d'initialisation Docker (pas un dump de données)
 !docker/init.sql
+!docker/init.sqlite.sql
 
 google205542c04daca98b.html
 

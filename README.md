@@ -19,25 +19,6 @@ Générateur d'étiquettes pour tableaux / armoires électriques.
 
 ---
 
-## 📢 Bon à savoir
-
-### Une question ? Des idées à partager / proposer ?
-
-Venez dans le nouvel **[espace de discussions](https://github.com/neosoda/Vpanel/discussions)** !
-
-### A contrario, vous avez découvert un bug, un défaut de fonctionnement ?
-
-Venez plutôt le déclarer dans **[l'espace dédié](https://github.com/neosoda/Vpanel/issues)** :-)
-
-### Vous êtes plus "réseaux sociaux" ?
-
-Retrouvez **Vpanel** directement sur **[sa page Facebook](https://www.facebook.com/profile.php?id=61563821616548)** !
-
-### Tester en avant première
-
-Vous pouvez tester Vpanel en cours de développement avant la sortie officielle de sa nouvelle version en utilisant ce lien: **https://www.vpanel.fr/dev/** ;-)
-
----
 
 # Bienvenue dans la documentation de Vpanel
 
@@ -471,32 +452,4 @@ sélectionner "Taille réelle" ou "Echelle 100%" pour respecter la mise en page 
 ### Fin!
 
 ---
-
-# Remerciements ❤ !
-
-Merci à tous les utilisateurs et contributeurs de Vpanel ! N'hésitez pas à remonter des bugs ou proposer de nouvelles idées pour faire évoluer le projet.
-
-### 🐛 Remontées de [BUGS](https://github.com/neosoda/Vpanel/issues?q=is%3Aissue) (les [issues](https://github.com/neosoda/Vpanel/issues?q=is%3Aissue)) , et les [Discussions](https://github.com/neosoda/Vpanel/discussions)
-
-- [zoliaaz](https://github.com/zoliaaz),
-- [cnaslain](https://github.com/cnaslain)
-- [ntarocco](https://github.com/ntarocco)
-- [jlecour](https://github.com/jlecour)
-- [plouflechien](https://github.com/plouflechien)
-- [Benoit485](https://github.com/Benoit485)
-- [F4FXL](https://github.com/F4FXL)
-- [dough29](https://github.com/dough29)
-- [karimLG](https://github.com/karimLG)
-- [fmdl](https://github.com/fmdl)
-- [ekozan](https://github.com/ekozan)
-- [Starlight58](https://github.com/Starlight58)
-- [Trinakria23](https://github.com/Trinakria23)
-- [Boubigloubi](https://github.com/Boubigloubi)
-- [martinlbb](https://github.com/martinlbb)
-- [rems64](https://github.com/rems64)
-- [Biodom13](https://github.com/Biodom13)
-- [mmnlfrrr](https://github.com/mmnlfrrr)
-- [LeG2](https://github.com/LeG2)
-- [misterg94](https://github.com/misterg94)
-- [Fanka14](https://github.com/Fanka14)
-- [xhark](https://github.com/blogmotion)
+

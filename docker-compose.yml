@@ -58,7 +58,7 @@ services:
       STATS_IGNORE_LOCALHOST: ${STATS_IGNORE_LOCALHOST:-false}
       STATS_VISITS_INTERVAL: ${STATS_VISITS_INTERVAL:-30 minutes}
     ports:
-      - "${APP_PORT:-80}:80"
+      - "${APP_PORT:-3000}:3000"
     volumes:
       - vpanel_data:/var/www/api/data
     restart: unless-stopped

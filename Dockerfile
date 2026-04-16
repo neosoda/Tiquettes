@@ -153,7 +153,7 @@ RUN chown -R www-data:www-data /var/www \
     && chown -R nginx:nginx /run/nginx
 
 # ── Métadonnées ───────────────────────────────────────────────
-EXPOSE 80
+EXPOSE 3000
 
 # Healthcheck léger : myip.php ne requiert pas de base de données
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \

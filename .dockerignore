@@ -55,3 +55,4 @@ public/api/libs/php-jwt-main/
 *.sw?
 *.db
 *.sql
+!docker/init.sqlite.sql

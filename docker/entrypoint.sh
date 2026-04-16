@@ -113,9 +113,9 @@ until php -r "
 " 2>/dev/null; do
     TRIES=$((TRIES + 1))
     if [ "$TRIES" -ge "$MAX_TRIES" ]; then
-        log "ERREUR : la base de données n'est pas disponible après ${MAX_TRIES} tentatives."
-        log "Vérifiez MYSQL_HOST, MYSQL_PORT, MYSQL_BASE, MYSQL_USER, MYSQL_PASS."
-        exit 1
+        log "AVERTISSEMENT : la base de données n'est pas disponible après ${MAX_TRIES} tentatives."
+        log "Le conteneur va tout de même démarrer, mais les API nécessitant MySQL échoueront."
+        break
     fi
     log "Base de données non prête, nouvelle tentative dans 2 s... (${TRIES}/${MAX_TRIES})"
     sleep 2

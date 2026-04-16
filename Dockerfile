@@ -79,17 +79,23 @@ error_log = /proc/self/fd/2
 display_startup_errors = Off
 PHP_INI
 
-# PHP-FPM Pool Configuration (allows runtime overrides via env vars)
+# PHP-FPM defaults
+ENV PHP_FPM_PM_MAX_CHILDREN=10 \
+    PHP_FPM_PM_START_SERVERS=2 \
+    PHP_FPM_PM_MIN_SPARE_SERVERS=1 \
+    PHP_FPM_PM_MAX_SPARE_SERVERS=5
+
+# PHP-FPM Pool Configuration
 RUN cat > /usr/local/etc/php-fpm.d/www.conf << 'PHPFPM_CONF'
 [www]
 user = www-data
 group = www-data
 
 pm = dynamic
-pm.max_children = ${PHP_FPM_PM_MAX_CHILDREN:-10}
-pm.start_servers = ${PHP_FPM_PM_START_SERVERS:-2}
-pm.min_spare_servers = ${PHP_FPM_PM_MIN_SPARE_SERVERS:-1}
-pm.max_spare_servers = ${PHP_FPM_PM_MAX_SPARE_SERVERS:-5}
+pm.max_children = ${PHP_FPM_PM_MAX_CHILDREN}
+pm.start_servers = ${PHP_FPM_PM_START_SERVERS}
+pm.min_spare_servers = ${PHP_FPM_PM_MIN_SPARE_SERVERS}
+pm.max_spare_servers = ${PHP_FPM_PM_MAX_SPARE_SERVERS}
 pm.process_idle_timeout = 10s
 pm.max_requests = 500
 

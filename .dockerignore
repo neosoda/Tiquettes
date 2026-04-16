@@ -6,8 +6,9 @@
 # Dependencies
 node_modules
 npm-debug.log
-package-lock.json
 yarn.lock
+
+# package-lock.json is REQUIRED for reproducible builds with npm ci
 
 # Build artifacts (will be created during Docker build)
 dist

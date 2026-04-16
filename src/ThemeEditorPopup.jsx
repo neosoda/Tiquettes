@@ -687,8 +687,7 @@ export default function ThemeEditorPopup({
             </div>
 
             <div className="tep-extras">
-                <b>⁛</b> Télécharger d'autres thèmes depuis le projet officiel.
-                    rel={'noopener'}>nouveaux thèmes</a> pour embellir ses étiquettes !
+                <b>⁛</b> Télécharger d'autres thèmes depuis le projet officiel pour embellir ses étiquettes !
             </div>
         </div>
     </Popup>

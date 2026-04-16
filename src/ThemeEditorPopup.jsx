@@ -687,7 +687,7 @@ export default function ThemeEditorPopup({
             </div>
 
             <div className="tep-extras">
-                <b>⁛</b> Télécharger de <a href="https://www.vpanel.fr/themes.php" target={'_blank'}
+                <b>⁛</b> Télécharger d'autres thèmes depuis le projet officiel.
                     rel={'noopener'}>nouveaux thèmes</a> pour embellir ses étiquettes !
             </div>
         </div>

@@ -115,7 +115,8 @@ RUN apk add --no-cache \
         pdo \
         pdo_sqlite \
         intl \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && rm -f /usr/local/etc/php-fpm.d/www.conf*
 
 # Répertoires de travail
 RUN mkdir -p \
@@ -146,7 +147,10 @@ RUN chmod +x /entrypoint.sh
 # Permissions
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/html \
-    && chmod -R 750 /var/www/api
+    && chmod -R 750 /var/www/api \
+    && chown -R www-data:www-data /var/log/php-fpm \
+    && chown -R nginx:nginx /var/log/nginx \
+    && chown -R nginx:nginx /run/nginx
 
 # ── Métadonnées ───────────────────────────────────────────────
 EXPOSE 80

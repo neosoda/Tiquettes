@@ -465,9 +465,19 @@ function filter_string_polyfill(string $string): string
 // endpoints that do not pass ?m= from falling back to 'development' in prod).
 $_defaultMode = getenv('PHP_APP_MODE');
 $_defaultMode = ($_defaultMode !== false && $_defaultMode !== '') ? $_defaultMode : 'development';
-define('MODE', isset($_GET['m']) ? trim(rawurldecode($_GET['m'])) : $_defaultMode);
-unset($_defaultMode);
-include_once __DIR__ . '/constants.' . MODE . '.php';
+$_mode = isset($_GET['m']) ? trim(rawurldecode($_GET['m'])) : $_defaultMode;
+$_mode = strtolower($_mode);
+if (!preg_match('/^[a-z0-9_-]+$/', $_mode)) {
+    $_mode = $_defaultMode;
+}
+define('MODE', $_mode);
+unset($_defaultMode, $_mode);
+
+$constantsFile = __DIR__ . '/constants.' . MODE . '.php';
+if (is_file($constantsFile) && is_readable($constantsFile)) {
+    include_once $constantsFile;
+}
+unset($constantsFile);
 
 
 // cors

@@ -21,6 +21,11 @@
 import Popup from "./Popup.jsx";
 
 export default function LoadingErrorPopup({ error, onCancel }) {
+    const toPlainText = (value) => String(value ?? '')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<[^>]+>/g, '')
+        .trim();
+
     return <Popup
         title={"Oups !"}
         showCancelButton={false}
@@ -31,8 +36,8 @@ export default function LoadingErrorPopup({ error, onCancel }) {
         onCancel={() => onCancel()}
     >
         <h3 style={{ margin: 0, padding: 0 }}>Huston, nous rencontrons un problème !</h3>
-        <p style={{ margin: 0, marginTop: '1rem', padding: 0 }} dangerouslySetInnerHTML={{ __html: error?.text ?? '' }} ></p>
-        <p style={{ margin: 0, marginTop: '2rem', padding: 0, paddingLeft: '0.5rem', fontWeight: 600, fontSize: '105%', borderLeft: '4px solid #ccc' }} dangerouslySetInnerHTML={{ __html: `${error?.message ?? '-'}`.trim() }} ></p>
-        <p style={{ margin: 0, marginTop: 0, padding: 0, paddingLeft: '0.5rem', fontSize: '80%', borderLeft: '4px solid #ccc' }} dangerouslySetInnerHTML={{ __html: `${error?.code ?? 'UNKNOWN_ERROR'}`.trim() }} ></p>
+        <p style={{ margin: 0, marginTop: '1rem', padding: 0, whiteSpace: 'pre-line' }}>{toPlainText(error?.text ?? '')}</p>
+        <p style={{ margin: 0, marginTop: '2rem', padding: 0, paddingLeft: '0.5rem', fontWeight: 600, fontSize: '105%', borderLeft: '4px solid #ccc', whiteSpace: 'pre-line' }}>{toPlainText(`${error?.message ?? '-'}`)}</p>
+        <p style={{ margin: 0, marginTop: 0, padding: 0, paddingLeft: '0.5rem', fontSize: '80%', borderLeft: '4px solid #ccc', whiteSpace: 'pre-line' }}>{toPlainText(`${error?.code ?? 'UNKNOWN_ERROR'}`)}</p>
     </Popup >
 }

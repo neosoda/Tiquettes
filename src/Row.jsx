@@ -66,6 +66,7 @@ function Row({
             <div className="row_title">
                 <img className={`row_delete_icon ${!rowDeleteAllowed() ? 'disabled' : ''}`} src={rowDeleteIcon}
                     width={20} height={20} alt="Supprimer cette rangée" title="Supprimer cette rangée" onClick={() => {
+                        if (!rowDeleteAllowed()) return;
                         if (confirm(`Supprimer la rangée ${rowPosition} et tout ce qu'elle contient?`)) onRowDelete(rowIndex);
                     }} />
                 <span>Rangée {rowPosition}</span>

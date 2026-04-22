@@ -254,9 +254,8 @@ function CustomTheme({ item, data, style }) {
         {shown.text && <div style={styles.text}
             data-order={positions.text.order === 0 ? 'top' : (positions.text.order === shownCount - 1 ? 'bottom' : 'middle')}>
             <p
-                style={styles.textContent}
-                dangerouslySetInnerHTML={{ __html: item.text.replaceAll("\n", "<br />") }}
-            ></p>
+                style={{ ...styles.textContent, whiteSpace: 'pre-line' }}
+            >{item.text ?? ""}</p>
         </div>}
 
     </>);

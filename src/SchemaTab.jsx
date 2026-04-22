@@ -57,6 +57,8 @@ export default function SchemaTab({
     }, [monitorOpened]);
 
     const handleEditSymbol = (module) => {
+        if (!onEditSymbol) return;
+
         const m = getModuleById(module.id);
         if (!m?.module) return;
 
@@ -66,10 +68,10 @@ export default function SchemaTab({
     const head = useMemo(() => {
         return switchboard.rows.map((row) => row.map((module) => {
             if ((module.func ?? '').trim() !== '' && ((module.parentId ?? '-').trim() === '' || !getModuleById(module.parentId).module)) {
-                return ({ ...module, parentId: switchboard.withDB ? "DB" : "" });
+                return ({ ...module, parentId: switchboard.withDb ? "DB" : "" });
             }
         })).flat().filter((module) => module);
-    }, [switchboard.rows, switchboard.withDb]);
+    }, [getModuleById, switchboard.rows, switchboard.withDb]);
 
     const getChilds = useCallback((parentId) => {
         return switchboard.rows.map((row) => row.map((module) => {
@@ -215,8 +217,8 @@ export default function SchemaTab({
                 }
 
                 const applyPowerRound = (value) => {
-                    if (value >= 1000) return { value: Math.round((value / 1000) * 100) / 100, unit: 'kW' };
                     if (value >= 1000000) return { value: Math.round((value / 1000000) * 100) / 100, unit: 'm.W' };
+                    if (value >= 1000) return { value: Math.round((value / 1000) * 100) / 100, unit: 'kW' };
                     return { value, unit: 'W' };
                 }
 

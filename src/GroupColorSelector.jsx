@@ -140,10 +140,10 @@ export default function GroupColorSelector({
                     {Object.keys(found).length > 0 && <>
                         <GroupColorSelectorSeparator />
                         {Object.keys(found).map((color) => {
-                            let t = found[color].map((m) => `<small><b>${m.id}</b></small> ${m.text}`.trim());
+                            let t = found[color].map((m) => `${m.id} ${m.text}`.trim());
                             return <GroupColorSelectorItem
                                 key={color}
-                                value={{ key: color, color, title: t.join('<br />') }}
+                                value={{ key: color, color, title: t.join('\n') }}
                                 selected={selected}
                                 handleColorItemSelected={handleColorItemSelected}
                                 hoveredItem={hoveredItem}

@@ -528,6 +528,21 @@ define('NOW_TIMESTAMP', NOW->getTimestamp());
 $rfr = isset($_GET['rfr']) ? stripslashes(trim(rawurldecode($_GET['rfr']))) : ($_SERVER['HTTP_REFERER'] ?? $_SERVER['HTTP_HOST'] ?? '');
 define('REFERER', $rfr);
 if (MODE !== 'development') {
+    $extractHost = static function (string $value): string {
+        $candidate = trim(strtolower($value));
+        if ($candidate === '') {
+            return '';
+        }
+        $parsed = parse_url($candidate, PHP_URL_HOST);
+        if (is_string($parsed) && $parsed !== '') {
+            return trim(strtolower($parsed));
+        }
+        $candidate = preg_replace('#^https?://#i', '', $candidate);
+        $candidate = explode('/', $candidate)[0];
+        $candidate = explode(':', $candidate)[0];
+        return trim(strtolower($candidate));
+    };
+
     // ALLOWED_HOSTS can be defined in constants.<mode>.php to extend the list
     // with the site's own hostname (required for Coolify / self-hosted deployments).
     $defaultAllowedHosts = ['localhost', '127.0.0.1', 'www.vpanel.fr'];
@@ -544,9 +559,19 @@ if (MODE !== 'development') {
     if ($requestHost !== '') {
         $defaultAllowedHosts[] = $requestHost;
     }
-    $defaultAllowedHosts = array_values(array_unique($defaultAllowedHosts));
+    $defaultAllowedHosts = array_values(array_unique(array_filter(array_map($extractHost, $defaultAllowedHosts), static fn($host) => $host !== '')));
     $allowedHosts = defined('ALLOWED_HOSTS') ? array_merge($defaultAllowedHosts, ALLOWED_HOSTS) : $defaultAllowedHosts;
-    $hostIsAllowed = in_array(true, array_map(fn($allowedHost) => stripos(REFERER, $allowedHost, 0) !== false, $allowedHosts));
+    $allowedHosts = array_values(array_unique(array_filter(array_map($extractHost, $allowedHosts), static fn($host) => $host !== '')));
+    $refererHost = $extractHost(REFERER);
+    $hostIsAllowed = false;
+    if ($refererHost !== '') {
+        foreach ($allowedHosts as $allowedHost) {
+            if ($refererHost === $allowedHost || str_ends_with($refererHost, '.' . $allowedHost)) {
+                $hostIsAllowed = true;
+                break;
+            }
+        }
+    }
     if (!$hostIsAllowed) {
         header("HTTP/1.1 401 Unauthorized");
         exit(0);

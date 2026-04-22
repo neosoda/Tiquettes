@@ -26,6 +26,21 @@ $checks['schema_functions_json'] = [
     'path' => $schemaFunctionsPath,
 ];
 
+// PDF backend capability (required for icon/symbol rasterization)
+$convertAvailable = false;
+try {
+    $retval = 0;
+    $ret = exec('convert -version', $out, $retval);
+    $convertAvailable = $ret !== false && $retval === 0;
+} catch (\Throwable $e) {
+    $convertAvailable = false;
+}
+$checks['pdf_backend_available'] = [
+    'ok' => extension_loaded('imagick') || $convertAvailable,
+    'imagick' => extension_loaded('imagick'),
+    'convert_cli' => $convertAvailable,
+];
+
 // Runtime-writable directories
 $sqliteDir = dirname(SQLITE_DB_PATH);
 $iconCacheDir = __DIR__ . '/libs/toPdf/themes/icons';

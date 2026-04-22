@@ -540,12 +540,13 @@ class VpanelPDF extends FPDF
 
     function svg2png(string $svgContent, string $pngFilepath, int $width = 100, int $height = 100): bool
     {
-        global $isDev;
-
         if (!str_starts_with(trim($svgContent), "<?xml"))
             $svgContent = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . trim($svgContent);
 
-        if ($this->required['modules']['php_imagick'] === true && !$isDev) {
+        $width = max(1, (int) $width);
+        $height = max(1, (int) $height);
+
+        if ($this->required['modules']['php_imagick'] === true) {
             $image = new Imagick();
 
             $image->newImage($width, $height, new ImagickPixel('transparent'));
@@ -557,13 +558,16 @@ class VpanelPDF extends FPDF
 
             return file_exists($pngFilepath);
 
-        } else if ($this->required['modules']['convert'] === true || $isDev) {
+        } else if ($this->required['modules']['convert'] === true) {
             $f = basename($pngFilepath, '.png');
             $d = dirname($pngFilepath);
             $s = "{$d}/{$f}.svg";
             file_put_contents($s, $svgContent);
 
-            $cmd = "convert {$s} -size 100x100 -transparent white png24:{$pngFilepath}";
+            $cmd = "convert "
+                . escapeshellarg($s)
+                . " -size {$width}x{$height} -transparent white "
+                . escapeshellarg("png24:{$pngFilepath}");
 
             try {
                 $retval = 0;
@@ -1468,6 +1472,17 @@ if (isset($_GET['require'])) {
     exit();
 }
 
+$requirements = VpanelPDF::requirements();
+if (($requirements['ok'] ?? false) !== true) {
+    http_response_code(503);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'error' => 'PDF runtime requirements are not satisfied.',
+        'requirements' => $requirements,
+    ]);
+    exit();
+}
+
 
 if (!isset($_POST['switchboard'])) {
     echo 'Missing switchboard parameter';
@@ -1495,7 +1510,6 @@ if (!is_object($printOptions)) {
 $tv = json_decode($_POST['tv'] ?? '""');
 $auto = intval(trim(($_POST['auto'] ?? '0'))) === 1;
 $schemaGridColor = explode(',', trim($_POST['schemaGridColor'] ?? ''));
-$isDev = intval(trim(($_POST['isDev'] ?? '0'))) === 1;
 
 if (!is_array($schemaGridColor) || count($schemaGridColor) !== 3)
     $schemaGridColor = [230, 230, 230];

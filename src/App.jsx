@@ -128,15 +128,20 @@ function App() {
         }
     }), []);
     const getSavedPrintOptions = () => {
-        if (sessionStorage.getItem(pkg.name + '_printOptions')) {
-            const merge = (a, b) => [a, b].reduce((r, o) => Object
-                .entries(o)
-                .reduce((q, [k, v]) => ({
-                    ...q,
-                    [k]: v && typeof v === 'object' ? merge(q[k] || {}, v) : v
-                }), r),
-                {});
-            return merge(defaultPrintOptions, JSON.parse(sessionStorage.getItem(pkg.name + '_printOptions')));
+        const storageKey = pkg.name + '_printOptions';
+        if (sessionStorage.getItem(storageKey)) {
+            try {
+                const merge = (a, b) => [a, b].reduce((r, o) => Object
+                    .entries(o)
+                    .reduce((q, [k, v]) => ({
+                        ...q,
+                        [k]: v && typeof v === 'object' ? merge(q[k] || {}, v) : v
+                    }), r),
+                    {});
+                return merge(defaultPrintOptions, JSON.parse(sessionStorage.getItem(storageKey)));
+            } catch {
+                sessionStorage.removeItem(storageKey);
+            }
         }
         return { ...defaultPrintOptions };
     }
@@ -238,9 +243,15 @@ function App() {
 
         switch (type) {
             case 'int':
-                return parseInt(param);
+                {
+                    const value = parseInt(param, 10);
+                    return Number.isNaN(value) ? defaultValue : value;
+                }
             case 'float':
-                return parseFloat(param);
+                {
+                    const value = parseFloat(param);
+                    return Number.isNaN(value) ? defaultValue : value;
+                }
             case 'boolean':
                 return param.toLowerCase() === 'true' || param === '1';
             default:
@@ -443,7 +454,7 @@ function App() {
 
     const themeEngineCompatibility = (swb) => {
         let theme = swb?.theme;
-        if (!theme) theme = getThemeOfFirstModuleFound(swb);
+        if (!theme || typeof theme?.name !== 'string') theme = getThemeOfFirstModuleFound(swb);
 
         if (!theme.name.startsWith('custom|')) {
             theme = {
@@ -452,58 +463,64 @@ function App() {
             };
         }
         if (!theme.data) {
+            const foundTheme = themesList.filter((t) => t.name === theme.name)[0];
             theme = {
                 ...theme,
-                data: themesList.filter((t) => t.name === theme.name)[0].data
+                data: foundTheme?.data ?? defaultTheme.data
             };
         }
         return theme;
     }
 
     const getSavedSwitchboard = () => {
-        if (sessionStorage.getItem(pkg.name)) {
-            let swb = {
-                ...defaultProject,
-                ...JSON.parse(sessionStorage.getItem(pkg.name))
-            };
+        const storageKey = pkg.name;
+        if (sessionStorage.getItem(storageKey)) {
+            try {
+                let swb = {
+                    ...defaultProject,
+                    ...JSON.parse(sessionStorage.getItem(storageKey))
+                };
 
-            const theme = themeEngineCompatibility(swb);
+                const theme = themeEngineCompatibility(swb);
 
-            swb = {
-                ...swb,
+                swb = {
+                    ...swb,
 
-                // <1.5.0  : add project metas 
-                // >=1.5.0 : convert data types
-                prjcreated: swb.prjcreated ? new Date(swb.prjcreated) : new Date(),
-                prjupdated: swb.prjupdated ? new Date(swb.prjupdated) : new Date(),
-                prjversion: swb.prjversion ? parseInt(swb.prjversion) : 1,
-                // <2.0.0
-                projectType: swb.projectType ?? defaultProjectType,
-                vref: swb.vref ? parseInt(swb.vref) : defaultVRef,
-                db: { ...defaultProjectProperties.db, ...(swb.db ?? { ...defaultProjectProperties.db }) },
-                withDb: swb.withDb === true || swb.withDb === false ? swb.withDb : false,
-                withGroundLine: swb.withGroundLine === true || swb.withGroundLine === false ? swb.withGroundLine : false,
-                schemaMonitor: swb.schemaMonitor === true || swb.schemaMonitor === false ? swb.schemaMonitor : false,
-                switchboardMonitor: swb.switchboardMonitor === true || swb.switchboardMonitor === false ? swb.switchboardMonitor : false,
-                summaryColumnRow: swb.summaryColumnRow === true || swb.summaryColumnRow === false ? swb.summaryColumnRow : false,
-                summaryColumnPosition: swb.summaryColumnPosition === true || swb.summaryColumnPosition === false ? swb.summaryColumnPosition : false,
-                summaryColumnType: swb.summaryColumnType === true || swb.summaryColumnType === false ? swb.summaryColumnType : true,
-                summaryColumnId: swb.summaryColumnId === true || swb.summaryColumnId === false ? swb.summaryColumnId : true,
-                summaryColumnFunction: swb.summaryColumnFunction === true || swb.summaryColumnFunction === false ? swb.summaryColumnFunction : true,
-                summaryColumnLabel: swb.summaryColumnLabel === true || swb.summaryColumnLabel === false ? swb.summaryColumnLabel : true,
-                summaryColumnDescription: swb.summaryColumnDescription === true || swb.summaryColumnDescription === false ? swb.summaryColumnDescription : true,
-                // <2.0.5
-                stepSize: swb.stepSize ?? defaultStepSize,
-                // <2.1.4
-                theme,
-                // <2.2.2
-                prjid: swb.prjid ?? generateUUID(),
+                    // <1.5.0  : add project metas 
+                    // >=1.5.0 : convert data types
+                    prjcreated: swb.prjcreated ? new Date(swb.prjcreated) : new Date(),
+                    prjupdated: swb.prjupdated ? new Date(swb.prjupdated) : new Date(),
+                    prjversion: swb.prjversion ? parseInt(swb.prjversion) : 1,
+                    // <2.0.0
+                    projectType: swb.projectType ?? defaultProjectType,
+                    vref: swb.vref ? parseInt(swb.vref) : defaultVRef,
+                    db: { ...defaultProjectProperties.db, ...(swb.db ?? { ...defaultProjectProperties.db }) },
+                    withDb: swb.withDb === true || swb.withDb === false ? swb.withDb : false,
+                    withGroundLine: swb.withGroundLine === true || swb.withGroundLine === false ? swb.withGroundLine : false,
+                    schemaMonitor: swb.schemaMonitor === true || swb.schemaMonitor === false ? swb.schemaMonitor : false,
+                    switchboardMonitor: swb.switchboardMonitor === true || swb.switchboardMonitor === false ? swb.switchboardMonitor : false,
+                    summaryColumnRow: swb.summaryColumnRow === true || swb.summaryColumnRow === false ? swb.summaryColumnRow : false,
+                    summaryColumnPosition: swb.summaryColumnPosition === true || swb.summaryColumnPosition === false ? swb.summaryColumnPosition : false,
+                    summaryColumnType: swb.summaryColumnType === true || swb.summaryColumnType === false ? swb.summaryColumnType : true,
+                    summaryColumnId: swb.summaryColumnId === true || swb.summaryColumnId === false ? swb.summaryColumnId : true,
+                    summaryColumnFunction: swb.summaryColumnFunction === true || swb.summaryColumnFunction === false ? swb.summaryColumnFunction : true,
+                    summaryColumnLabel: swb.summaryColumnLabel === true || swb.summaryColumnLabel === false ? swb.summaryColumnLabel : true,
+                    summaryColumnDescription: swb.summaryColumnDescription === true || swb.summaryColumnDescription === false ? swb.summaryColumnDescription : true,
+                    // <2.0.5
+                    stepSize: swb.stepSize ?? defaultStepSize,
+                    // <2.1.4
+                    theme,
+                    // <2.2.2
+                    prjid: swb.prjid ?? generateUUID(),
 
-            };
+                };
 
-            //console.log("Switchboard loaded from this session.");
+                //console.log("Switchboard loaded from this session.");
 
-            return modulesAutoId({ ...swb });
+                return modulesAutoId({ ...swb });
+            } catch {
+                sessionStorage.removeItem(storageKey);
+            }
         }
 
         //setWelcome(true);
@@ -700,7 +717,8 @@ function App() {
                 rows
             };
 
-            setSwitchboard(() => modulesAutoId({ ...swb }));
+            const importedSwitchboard = modulesAutoId({ ...swb });
+            setSwitchboard(() => importedSwitchboard);
 
             //const filename = importRef.current.value.replaceAll("\\", "/").split("/").pop();
             //setDocumentTitle(filename);
@@ -715,13 +733,13 @@ function App() {
 
             action('import');
 
-            return true;
+            return importedSwitchboard;
             // eslint-disable-next-line no-unused-vars
         } catch (err) {
             importRef.current.value = "";
             alert("Impossible d'importer ce projet.");
 
-            return false;
+            return null;
         }
     };
 
@@ -732,8 +750,14 @@ function App() {
     const importFromOutside = () => {
         let data = getUrlParam('data', 'string', null);
         if (data !== null) {
-            data = atob(data);
-            _importProject(data);
+            try {
+                data = atob(data);
+                if (!_importProject(data)) {
+                    alert("Projet invalide.");
+                }
+            } catch {
+                alert("Projet invalide.");
+            }
         } else {
             alert("Aucun projet à importer!");
         }
@@ -772,15 +796,13 @@ function App() {
 
     const printProject = () => {
         toPdf();
-
-        let types = ['pdf'];
-        if (printOptions.labels) types.push('print_labels');
-        if (printOptions.schema) types.push('print_schema');
-        if (printOptions.summary) types.push('print_summary');
     };
 
-    const toPdf = (withConfirm = true, printOptionsEx = null) => {
+    const toPdf = (withConfirm = true, printOptionsEx = null, switchboardEx = null) => {
         let po = printOptionsEx ?? printOptions;
+        let swb = switchboardEx ?? switchboard;
+        const themeGroup = swb?.theme?.group ?? '-';
+        const themeTitle = swb?.theme?.title ?? '-';
 
         if (!withConfirm || (withConfirm && confirm("ATTENTION: Veuillez imprimer en 'Taille réelle' ou 'Echelle 100%'. Ne pas 'ajuster à la page' dans les paramètres d'impression sous peine de déformer vos étiquettes."))) {
 
@@ -793,11 +815,10 @@ function App() {
             if (po.pdfOptions.openWindow) form.target = '_blank';
 
             let params = Object.fromEntries(Object.entries({
-                switchboard: { value: JSON.stringify(switchboard) },
+                switchboard: { value: JSON.stringify(swb) },
                 printOptions: { value: JSON.stringify(po) },
                 tv: { value: JSON.stringify(pkg.version) },
                 auto: { value: po.pdfOptions.autoPrint ? "1" : "0" },
-                isDev: { value: import.meta.env.VITE_APP_MODE === "development" ? "1" : "0" },
                 schemaGridColor: { value: Array.isArray(po.pdfOptions.schemaGridColor) ? po.pdfOptions.schemaGridColor.join(",") : Object.values(po.pdfOptions.schemaGridColor).join(",") },
                 labelsCutLines: { value: po.pdfOptions.labelsCutLines ? "1" : "0" },
             }).map(([key, value]) => {
@@ -819,7 +840,7 @@ function App() {
             form = null;
 
             action('print');
-            sendChoice('theme', ['total', `${switchboard.theme.group} - ${switchboard.theme.title}`], true);
+            sendChoice('theme', ['total', `${themeGroup} - ${themeTitle}`], true);
 
             let sc = ['total'];
             if (po.firstPage) sc.push('Page de garde');
@@ -846,8 +867,19 @@ function App() {
     const printProjectFromOutside = () => {
         let data = getUrlParam('data', 'string', null);
         if (data !== null) {
-            data = atob(data);
-            _importProject(data);
+            let importedSwitchboard = null;
+            try {
+                data = atob(data);
+            } catch {
+                alert("Aucun projet valide à imprimer!");
+                return;
+            }
+
+            importedSwitchboard = _importProject(data);
+            if (!importedSwitchboard) {
+                alert("Aucun projet valide à imprimer!");
+                return;
+            }
 
             const firstPage = getUrlParam('fp', 'boolean', defaultPrintOptions.firstPage);
             const freeModules = getUrlParam('fm', 'boolean', defaultPrintOptions.freeModules);
@@ -881,7 +913,7 @@ function App() {
                     schemaPrintFormat,
                     summaryPrintFormat,
                 }
-            });
+            }, importedSwitchboard);
         } else {
             alert("Aucun projet valide à imprimer!");
         }
@@ -1405,7 +1437,7 @@ function App() {
     }
 
     const modulePasteAllowed = (rowIndex, moduleIndex) => {
-        if (!clipboard || (clipboardMode.mode !== 'cut' && clipboardMode.mode !== 'copy')) return false;
+        if (!clipboard || !clipboardMode || (clipboardMode.mode !== 'cut' && clipboardMode.mode !== 'copy')) return false;
 
         const row = switchboard.rows[rowIndex];
 
@@ -1416,7 +1448,7 @@ function App() {
         let max = clipboard.span;
         let i = 0;
         while (max > 0) {
-            const nextModule = (moduleIndex + clipboard.span) < switchboard.stepsPerRows ? row[moduleIndex + i] : null;
+            const nextModule = (moduleIndex + i) < row.length ? row[moduleIndex + i] : null;
             if (!nextModule || !nextModule.free || nextModule.span !== 1) {
                 allowed = false;
                 break;
@@ -1566,6 +1598,11 @@ function App() {
     }
 
     const handleRowDelete = (rowIndex) => {
+        if (switchboard.rows.length <= 1) {
+            alert("Impossible de supprimer la dernière rangée.");
+            return;
+        }
+
         const newRows = switchboard.rows.filter((_, i) => i !== rowIndex);
         setSwitchboard((old) => modulesAutoId({ ...old, rows: newRows }));
     }

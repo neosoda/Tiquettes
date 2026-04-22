@@ -24,6 +24,8 @@ function GroupColorSelectorItem({
     handleColorItemSelected,
     hoveredItem, setHoveredItem
 }) {
+    const title = String(value?.title ?? value?.key ?? '');
+
     return <li data-value={value?.key} onClick={() => handleColorItemSelected(value)} style={{
         borderRadius: '5px',
         cursor: 'pointer',
@@ -40,7 +42,7 @@ function GroupColorSelectorItem({
         <div style={{ minWidth: '30px', width: '30px', height: '20px', backgroundColor: value?.color ?? 'transparent', border: value?.key === '' ? '1px solid lightgray' : 'initial' }}></div>
         {value?.key === '' && <div style={{ alignSelf: "center" }}>Aucune couleur</div>}
         {value?.key === '_new_' && <div style={{ alignSelf: "center" }}>Nouvelle couleur ...</div>}
-        {value?.key !== '' && value?.key !== '_new_' && <div dangerouslySetInnerHTML={{ __html: value?.title ?? value?.key }} style={{ marginTop: '-2px' }} />}
+        {value?.key !== '' && value?.key !== '_new_' && <div style={{ marginTop: '-2px', whiteSpace: 'pre-line' }}>{title}</div>}
     </li>;
 }
 

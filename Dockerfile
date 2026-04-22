@@ -106,7 +106,8 @@ RUN apk add --no-cache \
     nginx \
     curl \
     wget \
-    supervisor
+    supervisor \
+    imagemagick
 
 # Use the official installer image to get the script (faster than downloading)
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
@@ -116,7 +117,7 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 # - mbstring for PDF text formatting
 # - gd/exif/fileinfo/zip/opcache for existing app features
 # This is much faster and cleaner than manual compilation
-RUN install-php-extensions gd exif fileinfo zip opcache mbstring pdo_sqlite sqlite3
+RUN install-php-extensions gd exif fileinfo zip opcache mbstring pdo_sqlite sqlite3 imagick
 
 # PHP Configuration for production
 RUN cat > /usr/local/etc/php/conf.d/app.ini << 'PHP_INI'
@@ -318,6 +319,12 @@ fi
 # Check PHP-FPM responsiveness
 if ! curl -fsS http://localhost:8080/api/health.php | grep -q '"status":"ok"'; then
     echo "FAIL: API health endpoint failed"
+    exit 1
+fi
+
+# Check PDF runtime dependencies
+if ! curl -fsS http://localhost:8080/api/toPdf.php?require=1 | grep -q '"ok":true'; then
+    echo "FAIL: PDF runtime requirements missing"
     exit 1
 fi
 

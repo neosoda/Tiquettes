@@ -5,7 +5,7 @@
  */
 
 const VISION_MODEL = 'nvidia/nemotron-nano-12b-v2-vl:free';
-const API_KEY = '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';
+const API_KEY = import.meta.env.VITE_OPENROUTER_KEY ?? '';
 const BASE_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 const TEXT_MODELS = [

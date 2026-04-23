@@ -210,7 +210,7 @@
 .schemaItem .schemaItemSymbol.editable:hover .schemaItemSymbolType,
 .schemaItem .schemaItemSymbol.editable:hover .schemaItemSymbolCurrent,
 .schemaItem .schemaItemSymbol.editable:hover .schemaItemSymbolPole {
-    color: darkcyan;
+    color: var(--primary-color);
     font-weight: bold;
 }
 

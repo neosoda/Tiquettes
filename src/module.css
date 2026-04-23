@@ -62,7 +62,7 @@
     overflow: visible;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: all 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 
     --topSeparatorSize: 1px;
     --topSeparatorColor: #000000;
@@ -124,7 +124,7 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
     z-index: 2000;
     white-space: nowrap;
 }
@@ -154,7 +154,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease;
     background: transparent;
     border: 0;
     color: var(--text-primary);
@@ -278,7 +278,7 @@
     -webkit-user-select: none;
     user-select: none;
     overflow: hidden;
-    transition: all 0.1s ease-in-out;
+    transition: height 0.1s ease-in-out, opacity 0.1s ease-in-out;
 }
 
 .module .module_top .top_row {
@@ -311,7 +311,7 @@
     -webkit-user-select: none;
     user-select: none;
     overflow: hidden;
-    transition: all 0.1s ease-in-out;
+    transition: height 0.1s ease-in-out, opacity 0.1s ease-in-out;
     height: 0;
     border-bottom: 1px solid lightgray;
     border-left: 1px solid lightgray;

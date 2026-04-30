@@ -80,4 +80,16 @@ CREATE TABLE IF NOT EXISTS `stats_visits_details` (
         REFERENCES `stats_visits`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- ─── Projets partagés (persistance serveur par UFIID) ────────
+CREATE TABLE IF NOT EXISTS `projects` (
+    `ufiid`         VARCHAR(36)   NOT NULL,
+    `switchboard`   MEDIUMTEXT    NOT NULL,
+    `params`        TEXT          NOT NULL DEFAULT '{}',
+    `print_options` TEXT          NOT NULL DEFAULT '{}',
+    `created_at`    DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`    DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`ufiid`),
+    INDEX `idx_projects_updated` (`updated_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 SET FOREIGN_KEY_CHECKS = 1;

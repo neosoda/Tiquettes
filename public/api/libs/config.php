@@ -497,21 +497,26 @@ if (!defined('STATS_VISITS_INTERVAL')) {
 
 
 // cors
+// X-UFIID is a custom header used by load.php / save.php — it must be listed in
+// Access-Control-Allow-Headers so browsers pass the preflight check.
 $accessControlHeaders = trim((string) ($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'] ?? ''));
 if ($accessControlHeaders === '') {
-    $accessControlHeaders = 'Content-Type, Authorization, X-Requested-With';
+    $accessControlHeaders = 'Content-Type, Authorization, X-Requested-With, X-UFIID';
+} elseif (stripos($accessControlHeaders, 'X-UFIID') === false) {
+    $accessControlHeaders .= ', X-UFIID';
 }
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: {$accessControlHeaders}");
-    header("Access-Control-Max-Age: 1728000");
+    header("Access-Control-Max-Age: 86400");
     header("Content-Length: 0");
     header("Content-Type: text/plain");
     exit(0);
 }
+// Note: Access-Control-Allow-Credentials must not be sent alongside Allow-Origin: *
+// (browsers reject the combination). The referer allowlist is the security boundary.
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
 
 

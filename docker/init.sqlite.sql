@@ -71,3 +71,15 @@ CREATE TABLE IF NOT EXISTS `stats_visits_details` (
 );
 
 CREATE INDEX IF NOT EXISTS `idx_visit_date` ON `stats_visits_details` (`visit_id`, `date`);
+
+-- ─── Projets partagés (persistance serveur par UFIID) ────────
+CREATE TABLE IF NOT EXISTS `projects` (
+    `ufiid`         TEXT PRIMARY KEY,
+    `switchboard`   TEXT NOT NULL,
+    `params`        TEXT NOT NULL DEFAULT '{}',
+    `print_options` TEXT NOT NULL DEFAULT '{}',
+    `created_at`    TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
+    `updated_at`    TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+);
+
+CREATE INDEX IF NOT EXISTS `idx_projects_updated` ON `projects` (`updated_at`);

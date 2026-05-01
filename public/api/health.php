@@ -50,6 +50,24 @@ if (!is_dir($iconCacheDir)) {
 $checks['sqlite_directory_writable'] = ['ok' => is_dir($sqliteDir) && is_writable($sqliteDir), 'path' => $sqliteDir];
 $checks['icon_cache_writable'] = ['ok' => is_dir($iconCacheDir) && is_writable($iconCacheDir), 'path' => $iconCacheDir];
 
+// Project persistence: ensure projects table is accessible
+try {
+    DB->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS projects (
+    id TEXT PRIMARY KEY,
+    switchboard TEXT NOT NULL DEFAULT '{}',
+    params TEXT NOT NULL DEFAULT '{}',
+    print_options TEXT NOT NULL DEFAULT '{}',
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+SQL);
+    DB->query('SELECT COUNT(*) FROM projects');
+    $checks['projects_table'] = ['ok' => true];
+} catch (\Throwable $e) {
+    $checks['projects_table'] = ['ok' => false, 'error' => $e->getMessage()];
+}
+
 $statusOk = array_reduce($checks, static function (bool $carry, array $item): bool {
     return $carry && (($item['ok'] ?? false) === true);
 }, true);

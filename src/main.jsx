@@ -23,6 +23,7 @@ import ReactDOM from 'react-dom/client'
 import * as semver from 'semver';
 
 import App from './App.jsx'
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 import './main.css';
 import * as pkg from '../package.json';
@@ -124,4 +125,8 @@ export default function Main() {
     );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Main />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <ErrorBoundary>
+        <Main />
+    </ErrorBoundary>
+);

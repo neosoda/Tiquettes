@@ -496,23 +496,55 @@ if (!defined('STATS_VISITS_INTERVAL')) {
 }
 
 
+// Security headers — applied to every response
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
+
 // cors
+// Reflect a validated origin rather than using a wildcard so that
+// Access-Control-Allow-Credentials: true is honoured by browsers.
+$_requestOrigin = trim((string) ($_SERVER['HTTP_ORIGIN'] ?? ''));
+$_corsOrigin = '';
+if ($_requestOrigin !== '') {
+    $_parsedOriginHost = strtolower(trim((string) (parse_url($_requestOrigin, PHP_URL_HOST) ?: $_requestOrigin)));
+    $_corsAllowed = ['localhost', '127.0.0.1', 'www.vpanel.fr'];
+    $runtimeOriginHost = trim((string) (getenv('APP_HOSTNAME') ?: ''));
+    if ($runtimeOriginHost !== '') {
+        $runtimeOriginHost = preg_replace('#^https?://#i', '', $runtimeOriginHost);
+        $runtimeOriginHost = explode('/', $runtimeOriginHost)[0];
+        $_corsAllowed[] = trim($runtimeOriginHost);
+    }
+    foreach ($_corsAllowed as $_ah) {
+        if ($_parsedOriginHost === $_ah || str_ends_with($_parsedOriginHost, '.' . $_ah)) {
+            $_corsOrigin = $_requestOrigin;
+            break;
+        }
+    }
+    unset($_parsedOriginHost, $_corsAllowed, $_ah, $runtimeOriginHost);
+}
+// Fallback: allow any origin without credentials (needed for toPdf.php form POST)
+$_corsHeader = $_corsOrigin !== '' ? $_corsOrigin : '*';
+
 $accessControlHeaders = trim((string) ($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'] ?? ''));
 if ($accessControlHeaders === '') {
-    $accessControlHeaders = 'Content-Type, Authorization, X-Requested-With';
+    $accessControlHeaders = 'Content-Type, Authorization, X-Requested-With, X-UFIID';
 }
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Origin: {$_corsHeader}");
     header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: {$accessControlHeaders}");
-    header("Access-Control-Max-Age: 1728000");
+    if ($_corsOrigin !== '') header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Max-Age: 86400");
     header("Content-Length: 0");
     header("Content-Type: text/plain");
     exit(0);
 }
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Origin: {$_corsHeader}");
+if ($_corsOrigin !== '') header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
+unset($_requestOrigin, $_corsOrigin, $_corsHeader);
 
 
 // datetime

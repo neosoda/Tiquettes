@@ -24,7 +24,6 @@ import swbIcons from './switchboard_icons.json';
 import caretDownIcon from './assets/caret-down.svg';
 import caretUpIcon from './assets/caret-up.svg';
 
-/* eslint-disable react/prop-types */
 function IconSelector({ value = null, onChange = null, onOpenState = null }) {
     const [selected, setSelected] = useState(null);
     const [opened, setOpened] = useState(false);
@@ -82,6 +81,7 @@ function IconSelector({ value = null, onChange = null, onOpenState = null }) {
                 onChange(selected ? selected.filename : null, selected);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected]);
 
     useEffect(() => {
@@ -93,6 +93,7 @@ function IconSelector({ value = null, onChange = null, onOpenState = null }) {
             const result = Array.from(listRef.current.children).filter((child) => child.dataset.value === search.filename);
             if (result.length > 0) result[0].scrollIntoView();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [opened]);
 
     useEffect(() => {
@@ -111,6 +112,7 @@ function IconSelector({ value = null, onChange = null, onOpenState = null }) {
             const f = [...swbIcons].filter((icon) => icon.filename === value);
             if (f.length > 0 && (!selected || f[0].filename !== selected.filename)) setSelected(f[0]);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
 
     return (

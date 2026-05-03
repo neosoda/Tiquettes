@@ -16,14 +16,12 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 
 import {useMemo} from "react";
 
 import schemaFunctions from './schema_functions.json';
 
 export default function SchemaSymbol({
-                                         switchboard,
                                          module,
                                          onEdit = null,
                                          monitor = {}
@@ -54,6 +52,7 @@ export default function SchemaSymbol({
         const icon = `${import.meta.env.BASE_URL}schema_${func}.svg`;
 
         return {obj, name, title, icon, isDb, isContact};
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [module]);
 
     const handleEdit = () => {

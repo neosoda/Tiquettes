@@ -17,9 +17,8 @@
  */
 
 
-/* eslint-disable react/prop-types */
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Color, { hexToRgb } from "./color.js";
 import Solver from "./colorSolver.js";
 
@@ -84,6 +83,7 @@ function CustomTheme({ item, data, style }) {
         } catch {
             return "initial";
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     const idLineCount = useMemo(() => {
@@ -230,6 +230,7 @@ function CustomTheme({ item, data, style }) {
             backgroundColor: (colors.bg.text ? item.grp : (data?.text?.backgroundColor ?? "transparent")),
             width: "100%",
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [data, positions, colors]);
 
 

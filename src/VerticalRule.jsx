@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 import './verticalRule.css';
 
 export default function VerticalRule({size}) {

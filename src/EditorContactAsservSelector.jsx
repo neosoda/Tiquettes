@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 
 import partialAsservIcon from './assets/asserv_p.svg';
 import totalAsservIcon from './assets/asserv_t.svg';

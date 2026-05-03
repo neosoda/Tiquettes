@@ -55,10 +55,23 @@ export default ({ mode }) => {
         ],
         build: {
             rollupOptions: {
-                external: [
-                    "sharp"
-                ]
-            }
+                external: ['sharp'],
+                output: {
+                    manualChunks(id) {
+                        if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+                            return 'react-vendor';
+                        }
+                        if (id.includes('node_modules/react-color')) {
+                            return 'color-picker';
+                        }
+                        if (id.includes('node_modules/axios')) {
+                            return 'axios';
+                        }
+                    },
+                },
+            },
+            // Warn when a chunk exceeds 600 KB before gzip
+            chunkSizeWarningLimit: 600,
         }
     };
 

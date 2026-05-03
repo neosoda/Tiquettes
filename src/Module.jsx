@@ -34,18 +34,16 @@ import halfLeftIcon from './assets/half-left.svg';
 import halfRightIcon from './assets/half-right.svg';
 import noHalfIcon from './assets/no-half.svg';
 import clearIcon from './assets/trash.svg';
-import interIcon from './assets/inter.svg';
+// interIcon reserved for swap UI
 import inter2Icon from './assets/inter2.svg';
 
 
-/* eslint-disable react/prop-types */
 function Module({
     item,
     rowPosition = 1,
     modulePosition = 1,
     theme,
     clipboard,
-    clipboardMode,
     style = {},
     shrinkAllowed = null,
     growAllowed = null,
@@ -62,7 +60,6 @@ function Module({
     onPaste = null,
     onHalf = null,
     onInter = null,
-    onInterCopy = null,
     cancelPaste = null,
     onMoveLeft = null,
     onMoveRight = null,
@@ -76,8 +73,6 @@ function Module({
     const canPaste = useMemo(() => !isDemo && item.free && hasClipboard && (pasteAllowed && pasteAllowed(item)), [hasClipboard, isDemo, item, pasteAllowed]);
     const canInter = useMemo(() => !isDemo && !item.free && hasClipboard && (interAllowed && interAllowed(item)), [hasClipboard, isDemo, item, interAllowed]);
     const canEdit = useMemo(() => !isDemo && onEdit && !item.free, [isDemo, item.free, onEdit]);
-    const canCopy = useMemo(() => !isDemo && onCopy && !item.free, [isDemo, item.free, onCopy]);
-    const canInterCopy = useMemo(() => !isDemo && onInterCopy && !item.free, [isDemo, item.free, onInterCopy]);
     const canTransform = useMemo(() => (!isDemo && (((moveLeftAllowed && moveLeftAllowed(item)) || (moveRightAllowed && moveRightAllowed(item)) || (shrinkAllowed && shrinkAllowed(item)) || (growAllowed && growAllowed(item))))), [growAllowed, isDemo, item, moveLeftAllowed, moveRightAllowed, shrinkAllowed]);
     const halfModeLeft = useMemo(() => item.half === "none" || item.half === "right" ? "left" : "none", [item.half]);
     const halfModeRight = useMemo(() => item.half === "none" || item.half === "left" ? "right" : "none", [item.half]);

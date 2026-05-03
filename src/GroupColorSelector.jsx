@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import "./groupColorSelector.css";
@@ -73,6 +72,7 @@ export default function GroupColorSelector({
     useEffect(() => {
         const c = selected?.color ?? '';
         if (c !== value && onChange) onChange(c);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected]);
 
     return (

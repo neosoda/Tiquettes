@@ -172,6 +172,7 @@ export default function SpaceProvider({ children }) {
         return () => {
             closeAll();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

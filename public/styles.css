@@ -17,26 +17,79 @@
  */
 
 :root {
-    --primary-color: darkcyan;
-    --secondary-color: lightcyan;
-    --secondary-color-light: rgb(240, 255, 255);
-    --secondary-color-light-light: rgb(247, 255, 255);
-    --space-1: 0.5rem;
-    --space-2: 0.75rem;
-    --space-3: 1rem;
-    --space-4: 1.5rem;
-    --radius: 10px;
-    --content-size: 1152px;
+    /* ── Accent (teal) ─────────────────────────── */
+    --primary-color: #008b8b;
+    --primary-hover: #007a7a;
+    --primary-active: #006969;
+    --primary-foreground: #ffffff;
 
+    /* ── Secondary (legacy compat + refined) ───── */
+    --secondary-color: #cdf0f0;
+    --secondary-color-light: #e4f7f7;
+    --secondary-color-light-light: #f0fbfb;
+
+    /* ── Surfaces ───────────────────────────────── */
     --surface: #ffffff;
     --surface-alt: #f8fafc;
-    --border: #d1d5db;
+    --surface-subtle: #f8fafc;
+    --surface-raised: #ffffff;
+    --bg-page: #f4f7f8;
+
+    /* ── Text ───────────────────────────────────── */
     --text-primary: #111827;
     --text-secondary: #6b7280;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
-    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, .12), 0 4px 8px -2px rgba(0, 0, 0, .07);
+    --text-tertiary: #9ca3af;
+
+    /* ── Borders ────────────────────────────────── */
+    --border: #dde3ea;
+    --border-subtle: #eef2f6;
+    --border-strong: #c8d3df;
+
+    /* ── Shadows — directionnelles, en couche ───── */
+    --shadow-sm:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 1px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md:
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg:
+        0 2px 4px rgba(0, 0, 0, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.10),
+        0 0 0 1px rgba(0, 0, 0, 0.03);
+    --shadow-xl:
+        0 4px 8px rgba(0, 0, 0, 0.05),
+        0 20px 48px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+
+    /* ── Radius scale ───────────────────────────── */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-full: 9999px;
+    --radius: var(--radius-lg);
+
+    /* ── Motion ─────────────────────────────────── */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 120ms ease;
     --transition: 180ms ease;
+    --transition-slow: 240ms ease;
+
+    /* ── Spacing (base 4px) ─────────────────────── */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+
+    /* ── Layout ─────────────────────────────────── */
+    --content-size: 1152px;
 }
 
 *, *::before, *::after {
@@ -114,7 +167,9 @@ body {
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f9fafb;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    background-color: var(--bg-page);
 }
 
 #content {
@@ -128,13 +183,13 @@ body {
     justify-content: start;
     align-items: start;
     margin-bottom: 3rem;
-    background-color: #f9fafb;
+    background-color: var(--bg-page);
 }
 
 #root {
     width: 100%;
     margin-bottom: 0.5rem;
-    background-color: #f9fafb;
+    background-color: var(--bg-page);
 }
 
 img.disabled {
@@ -152,7 +207,9 @@ nav.header {
     position: sticky;
     top: 0;
     z-index: 200;
-    box-shadow: var(--shadow-md);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.06),
+        0 4px 16px rgba(0, 0, 0, 0.10);
 }
 
 nav.header ul {
@@ -268,13 +325,14 @@ nav.header ul li a:first-of-type {
     background-color: var(--surface-alt);
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition), transform var(--transition);
 }
 
 .box .box_list li:hover {
     background-color: var(--secondary-color-light);
     border-color: var(--primary-color);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
 }
 
 .box .box_list .box_list_title {
@@ -324,6 +382,8 @@ h1 {
     font-weight: 800;
     letter-spacing: -0.025em;
     color: var(--text-primary);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    line-height: 1.15;
 }
 
 h1 a {
@@ -404,8 +464,9 @@ button:not(:disabled):hover,
 }
 
 button:not(:disabled):active {
-    transform: translateY(1px);
+    transform: scale(0.97);
     box-shadow: none;
+    transition-duration: 80ms;
 }
 
 button:disabled,
@@ -471,13 +532,13 @@ input[type="range"]:focus {
 input[type="file"] {
     min-height: 44px;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: border-color var(--transition), opacity var(--transition);
 }
 
 input[type="file"]::-webkit-file-upload-button {
     min-height: 44px;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: background-color var(--transition), border-color var(--transition);
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
@@ -582,7 +643,7 @@ option[disabled] {
     align-items: center;
     gap: 0.375em;
     margin-block: 0.75em;
-    transition: all var(--transition);
+    transition: opacity var(--transition);
 }
 
 .radio_group .radio {

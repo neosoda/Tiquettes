@@ -18,7 +18,6 @@
 
 import { useEffect, useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
 function ContentEditable({ value = "", onChange = null, style = {}, editableStyle = {}, editableClassName = null, className = null, editMode = false, editable = true, height = 28 }) {
     const [edit, setEdit] = useState(editMode);
     const [lastContent, setLastContent] = useState(value);

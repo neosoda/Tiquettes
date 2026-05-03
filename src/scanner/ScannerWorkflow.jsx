@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect, useRef, useCallback } from 'react';
 import './scanner.css';
 import { analyzePanel, parseVoiceWithAI } from './openrouter.js';
@@ -98,7 +97,7 @@ function StepCapture({ onCapture, error }) {
             <div>
                 <div className="scanner-step-title">Photographiez votre tableau</div>
                 <div className="scanner-step-desc">
-                    Pointez l'appareil photo vers le tableau électrique ouvert. L'IA détectera chaque module automatiquement.
+                    Pointez l&apos;appareil photo vers le tableau électrique ouvert. L&apos;IA détectera chaque module automatiquement.
                 </div>
             </div>
 
@@ -215,7 +214,7 @@ function StepSchema({ panel, onUpdate, onConfirm, onRetake }) {
             <div>
                 <div className="scanner-step-title">Vérifiez le schéma détecté</div>
                 <div className="scanner-step-desc">
-                    Tapez sur un module pour corriger son type ou calibre. Les modules en orange n'ont pas été identifiés.
+                    Tapez sur un module pour corriger son type ou calibre. Les modules en orange n&apos;ont pas été identifiés.
                 </div>
             </div>
 
@@ -435,6 +434,7 @@ function StepVoice({ modules, currentIndex, onUpdate, onNext, onPrev, onDone }) 
 
         recognitionRef.current = rec;
         rec.start();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasSpeech, listening, applyParsed]);
 
     const stopListening = useCallback(() => {
@@ -634,7 +634,7 @@ ${m.zone ? `<div class="label-zone">${m.zone}</div>` : ''}
 </div>`;
     }).join('\n')}
 </div>
-<script>window.onload=()=>{window.print();}<\/script>
+<script>window.onload=()=>{window.print();}</script>
 </body></html>`);
     win.document.close();
 }
@@ -695,7 +695,7 @@ ${m.zone ? `<div class="mod-zone">${m.zone}</div>` : ''}
   <span>Vpanel Scanner — vpanel.fr</span>
   <span>NF C 15-100 — Installations électriques basse tension</span>
 </div>
-<script>window.onload=()=>{window.print();}<\/script>
+<script>window.onload=()=>{window.print();}</script>
 </body></html>`);
     win.document.close();
 }
@@ -817,14 +817,14 @@ export default function ScannerWorkflow({ onClose }) {
                     setVoiceIndex(vi ?? 0);
                 }
             }
-        } catch {}
+        } catch { /* state restore failure is non-fatal */ }
     }, []);
 
     useEffect(() => {
         if (panel) {
             try {
                 localStorage.setItem('vpanel_scanner_state', JSON.stringify({ step, panel, voiceIndex }));
-            } catch {}
+            } catch { /* localStorage unavailable */ }
         }
     }, [step, panel, voiceIndex]);
 

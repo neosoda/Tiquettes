@@ -54,7 +54,7 @@ import numbersIcon from "./assets/numbers.svg";
 import themeSettingsIcon from "./assets/theme_settings.svg";
 import caretDownIcon from "./assets/caret-down.svg";
 import caretUpIcon from "./assets/caret-up.svg";
-import userShieldIcon from "./assets/user-shield.svg";
+// userShieldIcon reserved for auth UI (Sprint 3)
 import saveProjectIcon from "./assets/device-floppy.svg";
 import waitProjectIcon from "./assets/hourglass-high.svg";
 import alertProjectIcon from "./assets/alert-triangle.svg";
@@ -69,7 +69,7 @@ import ScannerWorkflow from "./scanner/ScannerWorkflow.jsx";
 
 import { action, choices } from "../public/api/stats.js";
 
-import useDocumentVisibility from "./useVisibilityChange.jsx";
+// useDocumentVisibility available for future tab-focus optimizations
 import { SpaceContext } from "./SpaceContext.jsx";
 import LoadingPopup from "./LoadingPopup.jsx";
 import LoadingErrorPopup from "./LoadingErrorPopup.jsx";
@@ -641,6 +641,7 @@ function App() {
         setSubMenus(old => ({ ...old, printLabelsOpened: false, printSchemaOpened: false, printSummaryOpened: false }));
 
         createProject(defaultProjectName, defaultStepsPerRows, defaultNpRows, defaultHRow);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [createProject, defaultHRow, defaultNpRows, defaultProjectName, defaultStepsPerRows, defaultTheme]);
 
     const _importProject = (data) => {
@@ -834,7 +835,7 @@ function App() {
 
             form.submit();
 
-            Object.entries(params).forEach(([_, value]) => {
+            Object.entries(params).forEach(([, value]) => {
                 form.removeChild(value.input);
             });
             params = null;
@@ -1201,7 +1202,7 @@ function App() {
         replaceUrlHistory();
     };
 
-    const openProjectPropertiesEditor = (urlParams) => {
+    const openProjectPropertiesEditor = () => {
 
         let title = getUrlParam('t', 'string', defaultProjectProperties.name);
         if (title === "") title = defaultProjectProperties.name;
@@ -1355,8 +1356,6 @@ function App() {
         setSwitchboard((old) => {
             let deleteLength = 0;
             let addLength = 0;
-            let oldModuleId = '';
-            let newModuleId = '';
 
             let rows = old.rows.map((row, i) => {
                 let r = row.map((module, j) => {
@@ -1682,6 +1681,7 @@ function App() {
         if (e_errors.length > 0) result = { ...result, errors: { ...result.errors, Enveloppe: e_errors } };
 
         return result;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [switchboard.rows, switchboard.switchboardMonitor]);
     const monitorWarningsLength = useMemo(() => Object.values(monitor.errors ?? {}).map((e) => e.flat()).length, [monitor]);
 
@@ -1748,6 +1748,7 @@ function App() {
         }
 
         sessionStorage.setItem(pkg.name + '_autoResize', autoSpaceSize ? 'true' : 'false');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [autoSpaceSize, switchboard.stepsPerRows]);
 
     useEffect(() => {
@@ -1770,6 +1771,7 @@ function App() {
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [space.project, space.loadState]);
 
     useEffect(() => {
@@ -1790,7 +1792,7 @@ function App() {
             }
             return true;
         });
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -1887,8 +1889,8 @@ function App() {
                         </div>
                         {subMenus.printLabelsOpened && printOptions.labels && <>
                             <div className="dropdown_item"
-                                title="Format d'impression">
-                                <label htmlFor="print_labels_format" style={{ flex: 1 }}>Format d'impression :</label>
+                                title="Format impression">
+                                <label htmlFor="print_labels_format" style={{ flex: 1 }}>Format d&apos;impression :</label>
                                 <input id="print_labels_format_A4" name="print_labels_format_A4" type="radio"
                                     checked={printOptions.pdfOptions.labelsPrintFormat === 'A4'}
                                     onChange={(e) => setPrintOptions((old) => ({
@@ -1964,8 +1966,8 @@ function App() {
                         </div>
                         {subMenus.printSchemaOpened && printOptions.schema && <>
                             <div className="dropdown_item"
-                                title="Format d'impression">
-                                <label htmlFor="print_schema_format" style={{ flex: 1 }}>Format d'impression :</label>
+                                title="Format impression">
+                                <label htmlFor="print_schema_format" style={{ flex: 1 }}>Format d&apos;impression :</label>
                                 <input id="print_schema_format_A4" name="print_schema_format_A4" type="radio"
                                     checked={printOptions.pdfOptions.schemaPrintFormat === 'A4'}
                                     onChange={(e) => setPrintOptions((old) => ({
@@ -2009,8 +2011,8 @@ function App() {
                         </div>
                         {subMenus.printSummaryOpened && printOptions.summary && <>
                             <div className="dropdown_item"
-                                title="Format d'impression">
-                                <label htmlFor="print_summary_format" style={{ flex: 1 }}>Format d'impression :</label>
+                                title="Format impression">
+                                <label htmlFor="print_summary_format" style={{ flex: 1 }}>Format d&apos;impression :</label>
                                 <input id="print_summary_format_A4" name="print_summary_format_A4" type="radio"
                                     checked={printOptions.pdfOptions.summaryPrintFormat === 'A4'}
                                     onChange={(e) => setPrintOptions((old) => ({

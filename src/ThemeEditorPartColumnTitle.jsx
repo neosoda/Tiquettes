@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 
 import upIcon from "./assets/caret-up.svg";
 import downIcon from "./assets/caret-down.svg";

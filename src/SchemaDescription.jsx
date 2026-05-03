@@ -16,28 +16,12 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 
 import { useMemo } from "react";
 
 export default function SchemaDescription({
-    switchboard,
     module
 }) {
-    const getModuleById = (moduleId) => {
-        let indexes = { row: -1, module: -1 };
-        let m = { module: null, indexes };
-
-        switchboard.rows.forEach((row, ri) => {
-            row.forEach((module, mi) => {
-                if (!m.module && module.id === moduleId && !module.free) {
-                    m = { ...m, module, indexes: { ...indexes, row: ri, module: mi } };
-                }
-            })
-        });
-
-        return m;
-    }
 
     const infos = useMemo(() => {
         let icon = module.icon;

@@ -97,10 +97,6 @@ const ZONE_KEYWORDS = [
     'dressing',
 ];
 
-function normalise(text) {
-    return text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-}
-
 function detectCommand(text) {
     const lower = text.toLowerCase().trim();
     for (const [cmd, patterns] of Object.entries(COMMAND_PATTERNS)) {
@@ -154,7 +150,7 @@ function extractIcon(text) {
     return null;
 }
 
-function cleanLabel(text, rating) {
+function cleanLabel(text) {
     let label = text;
     // Remove rating mentions
     label = label.replace(/\b\d{1,3}\s*(?:ampères?|amps?|a)\b/gi, '');
@@ -178,7 +174,7 @@ export function parseSpeechLocal(transcript) {
     const rating = extractRating(text);
     const zone = extractZone(text);
     const iconFilename = extractIcon(text);
-    const label = cleanLabel(text, rating);
+    const label = cleanLabel(text);
 
     return { label: label || null, zone, rating, iconFilename, command: null };
 }

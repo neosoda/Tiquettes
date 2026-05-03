@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
@@ -50,7 +49,6 @@ export default function SchemaTab({
     const [monitorOpened, setMonitorOpened] = useState(false);
     const [zoomed, setZoomed] = useState(false);
     const monitorRef = useRef(null);
-    let dbCurrent = 0;
 
     useEffect(() => {
         if (monitorOpened) monitorRef.current.focus();
@@ -79,6 +77,7 @@ export default function SchemaTab({
                 return module;
             }
         })).flat().filter((module) => module);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [switchboard.rows, switchboard.withDb]);
 
     const getRow = useCallback((moduleList) => {
@@ -127,6 +126,7 @@ export default function SchemaTab({
             };
         })
         return l;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [switchboard.rows, switchboard.withDb]
     );
 
@@ -146,6 +146,7 @@ export default function SchemaTab({
         : ({
             childs: getRow(head)
         }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [head, switchboard.withDb, switchboard.db]
     );
 
@@ -155,6 +156,7 @@ export default function SchemaTab({
         let result = {};
         let nbIdTypeA30 = 0;
         let nbIdTypeAC30 = 0;
+        let dbCurrent = 0;
 
         function add_error(id, message) {
             let errors = (result.errors ?? [])[id] ?? [];
@@ -247,7 +249,7 @@ export default function SchemaTab({
 
                 // Le module courant est un interrupteur différentiel
                 if (currentFunc === 'id' && getId(data.module)) {
-                    const powers = Object.entries(data.childs).map(([_, cdata]) => {
+                    const powers = Object.entries(data.childs).map(([, cdata]) => {
                         if (getFunc(cdata.module) === 'q') return ((getCurrent(cdata.module) * getTrueCoef(cdata.module)) / getTrueFactor(cdata.module)) * switchboard.vref;
                         return 0;
                     });

@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 
 import schemaFunctions from './schema_functions.json';
@@ -65,6 +64,7 @@ export default function Editor({
     const [isCustomFunction, setIsCustomFunction] = useState(false);
 
     const [editorTab, setEditorTab] = useState(ed?.tabPage ?? "main");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const prevModule = useMemo(() => getModuleById(ed?.prevModule?.parentId), [ed?.prevModule?.parentId]);
     const prevModuleTitle = useMemo(() => ((prevModule?.id ?? "-") + " " + (prevModule && schemaFunctions[prevModule.func] ? "(" + schemaFunctions[prevModule.func].name + ")" : "")).trim(), [prevModule]);
 
@@ -120,7 +120,7 @@ export default function Editor({
 
     const getParentById = (parentId) => {
         const parent = Object.entries(getFilteredModulesBySchemaFuncs())
-            .map(([k, l]) => {
+            .map(([, l]) => {
                 const res = l
                     .map((module) => parentId === module.id ? module : null)
                     .filter(f => f !== null);
@@ -137,9 +137,10 @@ export default function Editor({
         return parent[0];
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const parentModule = useMemo(() => getParentById(ed.currentModule.parentId), [ed.currentModule.parentId]);
     const parentModuleIsTri = useMemo(() => parentModule && schemaFunctions[parentModule.func]?.hasPole && (parentModule.pole === '3P+N' || parentModule.pole === '4P'), [parentModule]);
-    const hasLine = useMemo(() => parentModule && parentModuleIsTri && schemaFunctions[ed.currentModule.func]?.hasPole && ed.currentModule.pole === '1P+N', [parentModule, parentModuleIsTri, ed.currentModule, schemaFunctions]);
+    const hasLine = useMemo(() => parentModule && parentModuleIsTri && schemaFunctions[ed.currentModule.func]?.hasPole && ed.currentModule.pole === '1P+N', [parentModule, parentModuleIsTri, ed.currentModule]);
 
     useEffect(() => {
         if (!hasLine) onUpdateModuleEditor({ line: "" })
@@ -165,7 +166,7 @@ export default function Editor({
         }
 
         if (dbPole === 1 && currentPole !== 1) onUpdateModuleEditor({ pole: switchboard.db.pole });
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasBlankId, ed.currentModule.func]);
 
 

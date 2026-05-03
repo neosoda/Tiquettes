@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import Popup from "./Popup.jsx";
@@ -236,6 +235,7 @@ export default function ThemeEditorPopup({
                 }
             }))
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [shownCount]);
 
     return <Popup
@@ -603,7 +603,7 @@ export default function ThemeEditorPopup({
                         '--left_column_size': '100px',
                     }}>
                         <label>Fonction</label>
-                        <IconSelector value={sample.icon} onChange={(selectedIcon, selected) => {
+                        <IconSelector value={sample.icon} onChange={(selectedIcon) => {
                             setSample(old => ({ ...old, icon: selectedIcon }));
                         }}
                         />
@@ -687,7 +687,7 @@ export default function ThemeEditorPopup({
             </div>
 
             <div className="tep-extras">
-                <b>⁛</b> Télécharger d'autres thèmes depuis le projet officiel pour embellir ses étiquettes !
+                <b>⁛</b> Télécharger d&apos;autres thèmes depuis le projet officiel pour embellir ses étiquettes !
             </div>
         </div>
     </Popup>

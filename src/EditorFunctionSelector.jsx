@@ -16,7 +16,6 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* eslint-disable react/prop-types */
 import schemaFunctions from './schema_functions.json';
 
 export default function EditorFunctionSelector({id, value, onChange = null}) {

@@ -24,7 +24,6 @@ import rowDeleteIcon from './assets/trash.svg';
 
 import Module from "./Module";
 
-/* eslint-disable react/prop-types */
 function Row({
     rowPosition,
     rowIndex,

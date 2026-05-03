@@ -32,9 +32,8 @@ function fetchURL(filename, struct, args = {}) {
         ...args
     });
     fetch(url)
-        .then((response) => response.text().then(text => ({ response, text })))
-        .then((data) => {
-            let { response, text } = data;
+        .then((res) => res.text())
+        .then((text) => {
             text = text.trim();
             if (text === "") text = "no content";
             /*if (import.meta.env.VITE_APP_MODE === 'development') {

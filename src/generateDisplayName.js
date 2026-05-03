@@ -17,7 +17,7 @@
  */
 
 
-export default function generateDisplayName(fileName) {
+export default function generateDisplayName() {
     const adjectifs = [
         'Joyeux', 'Bavard', 'Rapide', 'Timide', 'Rusé',
         'Majestueux', 'Curieux', 'Énergique', 'Paisible', 'Malicieux',

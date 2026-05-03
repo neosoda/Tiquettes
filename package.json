@@ -37,6 +37,9 @@
         "build:web": "cross-env NODE_ENV=web vite build --mode web",
         "prebuild:dev": "concurrently \"npm run copies\"",
         "build:dev": "cross-env NODE_ENV=dev vite build --mode dev",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
         "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview --port 8080",
         "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/favicon.svg",
@@ -63,6 +66,7 @@
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^5.1.4",
+        "@vitest/coverage-v8": "^3.2.4",
         "concurrently": "^9.2.1",
         "cross-env": "^10.1.0",
         "eslint": "^9.39.3",
@@ -73,6 +77,7 @@
         "vite": "^7.3.1",
         "vite-plugin-mkcert": "^1.17.10",
         "vite-plugin-open-graph": "^2.0.6",
-        "vite-plugin-sitemap": "^0.8.2"
+        "vite-plugin-sitemap": "^0.8.2",
+        "vitest": "^3.2.4"
     }
 }

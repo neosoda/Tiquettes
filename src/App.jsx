@@ -25,7 +25,7 @@ import sanitizeFilename from 'sanitize-filename';
 import './app.css';
 import * as pkg from '../package.json';
 import themesList from './themes.json';
-import swbIcons from './switchboard_icons.json';
+import { migrateModules, migrateProjectMeta } from './Utilities/migrateProject.js';
 import schemaFunctions from './schema_functions.json';
 
 import Row from "./Row";
@@ -488,34 +488,14 @@ function App() {
 
                 swb = {
                     ...swb,
-
-                    // <1.5.0  : add project metas 
-                    // >=1.5.0 : convert data types
-                    prjcreated: swb.prjcreated ? new Date(swb.prjcreated) : new Date(),
-                    prjupdated: swb.prjupdated ? new Date(swb.prjupdated) : new Date(),
-                    prjversion: swb.prjversion ? parseInt(swb.prjversion) : 1,
-                    // <2.0.0
-                    projectType: swb.projectType ?? defaultProjectType,
-                    vref: swb.vref ? parseInt(swb.vref) : defaultVRef,
-                    db: { ...defaultProjectProperties.db, ...(swb.db ?? { ...defaultProjectProperties.db }) },
-                    withDb: swb.withDb === true || swb.withDb === false ? swb.withDb : false,
-                    withGroundLine: swb.withGroundLine === true || swb.withGroundLine === false ? swb.withGroundLine : false,
-                    schemaMonitor: swb.schemaMonitor === true || swb.schemaMonitor === false ? swb.schemaMonitor : false,
-                    switchboardMonitor: swb.switchboardMonitor === true || swb.switchboardMonitor === false ? swb.switchboardMonitor : false,
-                    summaryColumnRow: swb.summaryColumnRow === true || swb.summaryColumnRow === false ? swb.summaryColumnRow : false,
-                    summaryColumnPosition: swb.summaryColumnPosition === true || swb.summaryColumnPosition === false ? swb.summaryColumnPosition : false,
-                    summaryColumnType: swb.summaryColumnType === true || swb.summaryColumnType === false ? swb.summaryColumnType : true,
-                    summaryColumnId: swb.summaryColumnId === true || swb.summaryColumnId === false ? swb.summaryColumnId : true,
-                    summaryColumnFunction: swb.summaryColumnFunction === true || swb.summaryColumnFunction === false ? swb.summaryColumnFunction : true,
-                    summaryColumnLabel: swb.summaryColumnLabel === true || swb.summaryColumnLabel === false ? swb.summaryColumnLabel : true,
-                    summaryColumnDescription: swb.summaryColumnDescription === true || swb.summaryColumnDescription === false ? swb.summaryColumnDescription : true,
-                    // <2.0.5
-                    stepSize: swb.stepSize ?? defaultStepSize,
-                    // <2.1.4
-                    theme,
-                    // <2.2.2
-                    prjid: swb.prjid ?? generateUUID(),
-
+                    ...migrateProjectMeta(swb, {
+                        theme,
+                        defaultDb: defaultProjectProperties.db,
+                        defaultProjectType,
+                        defaultVRef,
+                        defaultStepSize,
+                        generateUUID,
+                    }),
                 };
 
                 //console.log("Switchboard loaded from this session.");
@@ -650,74 +630,19 @@ function App() {
             const theme = themeEngineCompatibility(swb);
             setTheme(theme);
 
-            const rows = swb.rows.map((r) => {
-                return r.map((m) => {
-                    let nm = { ...m };
-
-                    // <=1.4.0 : remove old theme definitions
-                    if (nm.theme) delete nm['theme'];
-
-                    // <=2.0.0 : add module default values fors schema definitions
-                    if (nm.icon) {
-                        const sic = swbIcons.filter((si) => si.filename === nm.icon);
-                        if (sic.length === 1) {
-                            if (!nm.coef) nm = { ...nm, coef: sic[0].coef };
-                            //if (!nm.func) nm = {...nm, func: sic[0].func};
-                            //if (!nm.crb) nm = {...nm, crb: sic[0].crb};
-                            //if (!nm.current) nm = {...nm, current: sic[0].current};
-                        }
-                    }
-
-                    // <=2.0.3 : add half module size
-                    if (!nm.half) nm = { ...nm, half: "none" };
-
-                    // <=2.2.3 : add modtype and wire property
-                    if (!nm.modtype) nm = { ...nm, modtype: "" };
-                    if (!nm.wire) nm = { ...nm, wire: "" };
-
-                    // <=2.2.4 : add grp property
-                    if (!nm.grp) nm = { ...nm, grp: "" };
-
-                    // <=2.2.5 : add line property
-                    if (!nm.line) nm = { ...nm, line: "" };
-
-                    // <=2.2.6 : add partialKc property
-                    if (!nm.partialKc) nm = { ...nm, partialKc: false };
-
-                    return nm;
-                });
-            });
+            const rows = migrateModules(swb.rows);
             swb = {
                 ...defaultProject,
                 ...swb,
-
-                // <1.5.0
-                prjcreated: swb.prjcreated ? new Date(swb.prjcreated) : new Date(),
-                prjupdated: swb.prjupdated ? new Date(swb.prjupdated) : new Date(),
-                prjversion: swb.prjversion ? parseInt(swb.prjversion) : 1,
-                // <2.0.0
-                projectType: swb.projectType ?? defaultProjectType,
-                vref: swb.vref ? parseInt(swb.vref) : defaultVRef,
-                db: { ...defaultProjectProperties.db, ...(swb.db ?? { ...defaultProjectProperties.db }) },
-                withDb: swb.withDb === true || swb.withDb === false ? swb.withDb : false,
-                withGroundLine: swb.withGroundLine === true || swb.withGroundLine === false ? swb.withGroundLine : false,
-                schemaMonitor: swb.schemaMonitor === true || swb.schemaMonitor === false ? swb.schemaMonitor : false,
-                switchboardMonitor: swb.switchboardMonitor === true || swb.switchboardMonitor === false ? swb.switchboardMonitor : false,
-                summaryColumnRow: swb.summaryColumnRow === true || swb.summaryColumnRow === false ? swb.summaryColumnRow : false,
-                summaryColumnPosition: swb.summaryColumnPosition === true || swb.summaryColumnPosition === false ? swb.summaryColumnPosition : false,
-                summaryColumnType: swb.summaryColumnType === true || swb.summaryColumnType === false ? swb.summaryColumnType : true,
-                summaryColumnId: swb.summaryColumnId === true || swb.summaryColumnId === false ? swb.summaryColumnId : true,
-                summaryColumnFunction: swb.summaryColumnFunction === true || swb.summaryColumnFunction === false ? swb.summaryColumnFunction : true,
-                summaryColumnLabel: swb.summaryColumnLabel === true || swb.summaryColumnLabel === false ? swb.summaryColumnLabel : true,
-                summaryColumnDescription: swb.summaryColumnDescription === true || swb.summaryColumnDescription === false ? swb.summaryColumnDescription : true,
-                // <2.0.5
-                stepSize: swb.stepSize ?? defaultStepSize,
-                // <2.1.4
-                theme,
-                // <2.2.2
-                prjid: swb.prjid ?? generateUUID(),
-
-                rows
+                ...migrateProjectMeta(swb, {
+                    theme,
+                    defaultDb: defaultProjectProperties.db,
+                    defaultProjectType,
+                    defaultVRef,
+                    defaultStepSize,
+                    generateUUID,
+                }),
+                rows,
             };
 
             const importedSwitchboard = modulesAutoId({ ...swb });
@@ -955,7 +880,7 @@ function App() {
         setEditor({
             rowIndex,
             moduleIndex,
-            /*originalModule: {...currentModule},*/
+            originalModule: { ...currentModule },
             currentModule,
             prevModule,
             theme,

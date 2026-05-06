@@ -132,7 +132,7 @@ function App() {
     }), []);
     const getSavedPrintOptions = () => {
         const storageKey = pkg.name + '_printOptions';
-        if (sessionStorage.getItem(storageKey)) {
+        if (localStorage.getItem(storageKey)) {
             try {
                 const merge = (a, b) => [a, b].reduce((r, o) => Object
                     .entries(o)
@@ -141,9 +141,9 @@ function App() {
                         [k]: v && typeof v === 'object' ? merge(q[k] || {}, v) : v
                     }), r),
                     {});
-                return merge(defaultPrintOptions, JSON.parse(sessionStorage.getItem(storageKey)));
+                return merge(defaultPrintOptions, JSON.parse(localStorage.getItem(storageKey)));
             } catch {
-                sessionStorage.removeItem(storageKey);
+                localStorage.removeItem(storageKey);
             }
         }
         return { ...defaultPrintOptions };
@@ -151,8 +151,8 @@ function App() {
     const [printOptions, setPrintOptions] = useState(getSavedPrintOptions());
 
     const getSavedAutoResize = () => {
-        if (sessionStorage.getItem(pkg.name + '_autoResize')) {
-            return sessionStorage.getItem(pkg.name + '_autoResize') === 'true';
+        if (localStorage.getItem(pkg.name + '_autoResize')) {
+            return localStorage.getItem(pkg.name + '_autoResize') === 'true';
         }
         return false;
     }
@@ -477,11 +477,11 @@ function App() {
 
     const getSavedSwitchboard = () => {
         const storageKey = pkg.name;
-        if (sessionStorage.getItem(storageKey)) {
+        if (localStorage.getItem(storageKey)) {
             try {
                 let swb = {
                     ...defaultProject,
-                    ...JSON.parse(sessionStorage.getItem(storageKey))
+                    ...JSON.parse(localStorage.getItem(storageKey))
                 };
 
                 const theme = themeEngineCompatibility(swb);
@@ -522,7 +522,7 @@ function App() {
 
                 return modulesAutoId({ ...swb });
             } catch {
-                sessionStorage.removeItem(storageKey);
+                localStorage.removeItem(storageKey);
             }
         }
 
@@ -1698,23 +1698,21 @@ function App() {
         setDocumentTitle(switchboard.prjname);
 
         t = setTimeout(() => {
-            const savedProjectIsOutdated = sessionStorage.getItem(pkg.name) !== JSON.stringify(switchboard);
+            const savedProjectIsOutdated = localStorage.getItem(pkg.name) !== JSON.stringify(switchboard);
             if (savedProjectIsOutdated) {
                 let updatedProject = {
                     ...switchboard,
                     prjupdated: new Date()
                 };
 
-                sessionStorage.setItem(pkg.name, JSON.stringify(updatedProject));
+                localStorage.setItem(pkg.name, JSON.stringify(updatedProject));
                 setSwitchboard(updatedProject);
                 setDocumentTitle(updatedProject.prjname);
-
-                //console.log("Switchboard saved to this session.");
             }
 
-            const printOptionsIsOutdated = sessionStorage.getItem(pkg.name + '_printOptions') !== JSON.stringify(printOptions);
+            const printOptionsIsOutdated = localStorage.getItem(pkg.name + '_printOptions') !== JSON.stringify(printOptions);
             if (printOptionsIsOutdated) {
-                sessionStorage.setItem(pkg.name + '_printOptions', JSON.stringify(printOptions));
+                localStorage.setItem(pkg.name + '_printOptions', JSON.stringify(printOptions));
             }
         }, 1000);
 
@@ -1747,7 +1745,7 @@ function App() {
             }
         }
 
-        sessionStorage.setItem(pkg.name + '_autoResize', autoSpaceSize ? 'true' : 'false');
+        localStorage.setItem(pkg.name + '_autoResize', autoSpaceSize ? 'true' : 'false');
     }, [autoSpaceSize, switchboard.stepsPerRows]);
 
     useEffect(() => {

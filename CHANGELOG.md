@@ -1,5 +1,14 @@
 # ChangeLog
 
+## [2.3.0] - 2026-05-06
+
+### Ajouts
+
+- Persistance des projets entre sessions : migration de sessionStorage vers localStorage pour ne plus perdre son travail à la fermeture du navigateur.
+- Endpoints API load.php et save.php : sauvegarde et chargement serveur des projets via le système d'espaces (URL ?ufiid=...).
+- Variable d'environnement VITE_OPENROUTER_KEY pour la clé API du scanner IA, disponible dans tous les profils de déploiement.
+
+
 ## [2.2.7] - 2025-03-27
 
 ### Corrections

@@ -45,7 +45,7 @@ function Footer() {
 }
 
 export default function Main() {
-    const [newVersionAvaillable, setNewVersionAvaillable] = useState(null);
+    const [newVersionAvailable, setNewVersionAvailable] = useState(null);
 
     useEffect(() => {
         console.log("Mode:", import.meta.env.VITE_APP_MODE);
@@ -99,8 +99,8 @@ export default function Main() {
                 const localVersion = pkg.version;
 
                 if (semver.gt(currentVersion, localVersion)) {
-                    console.log(`New version ${currentVersion} availlable ! Please force your browser to reload before using it.`);
-                    setNewVersionAvaillable(currentVersion);
+                    console.log(`New version ${currentVersion} available! Please force your browser to reload before using it.`);
+                    setNewVersionAvailable(currentVersion);
                 } else {
                     console.log(`You are up to date. Current version: ${currentVersion}`);
                 }
@@ -114,8 +114,8 @@ export default function Main() {
             <App />
             <Footer />
 
-            {newVersionAvaillable && <NewVersionPopup
-                newVersion={newVersionAvaillable}
+            {newVersionAvailable && <NewVersionPopup
+                newVersion={newVersionAvailable}
                 onOk={() => {
                     window.location.reload(true);
                 }}

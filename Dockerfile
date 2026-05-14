@@ -76,7 +76,7 @@ RUN npm ci --include=dev
 
 # Copier source
 COPY src ./src
-COPY public/api ./public/api
+COPY public/ ./public/
 COPY index.html vite.config.js .eslintrc.cjs ./
 
 # Build app pour Coolify (compile config, copy assets, then build with Vite)
@@ -215,25 +215,41 @@ server {
 
     # Asset cache (JS, CSS, fonts, images)
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        try_files $uri /assets$uri /api$uri /index.html =404;
+        rewrite ^/([^/]+)/(.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))$ /$2 break;
         expires 30d;
         add_header Cache-Control "public, immutable";
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
         access_log off;
     }
 
     # JSON files cache (1 hour)
     location ~ \.(json|webmanifest)$ {
+        try_files $uri /index.html =404;
         expires 1h;
         add_header Cache-Control "public, max-age=3600";
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     }
 
     # HTML and index cache policy
     location ~ \.html?$ {
         expires -1;
         add_header Cache-Control "no-store, must-revalidate";
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     }
 
     # PHP API endpoints
     location /api/ {
+        rewrite ^.*/api/(.*)$ /api/$1 break;
         try_files $uri =404;
         fastcgi_pass php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;

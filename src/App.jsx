@@ -955,7 +955,7 @@ function App() {
         setEditor({
             rowIndex,
             moduleIndex,
-            /*originalModule: {...currentModule},*/
+            originalModule: {...currentModule},
             currentModule,
             prevModule,
             theme,
@@ -991,29 +991,11 @@ function App() {
         const grp = (data.currentModule.grp ?? "").trim();
         const line = (data.currentModule.line ?? "").trim();
 
-        if (!(/\w*/.test(id)) || id === '') {
+        if (!/^\w+$/.test(id)) {
             setEditor((old) => ({
                 ...old,
                 currentModule: { ...old.currentModule, id: "" },
                 errors: [...old.errors, "Un identifiant valide est requis."]
-            }));
-            return;
-        }
-
-        if (!(/\w*/.test(text))) {
-            setEditor((old) => ({
-                ...old,
-                currentModule: { ...old.currentModule, text: "" },
-                errors: [...old.errors, "Une description valide est requise."]
-            }));
-            return;
-        }
-
-        if (!(/\w*/.test(desc))) {
-            setEditor((old) => ({
-                ...old,
-                currentModule: { ...old.currentModule, desc: "" },
-                errors: [...old.errors, "Une description valide est requise."]
             }));
             return;
         }

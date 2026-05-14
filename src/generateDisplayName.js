@@ -40,9 +40,9 @@ export default function generateDisplayName(fileName) {
         'Givré', 'Allumé', 'Décalé', 'Barré', 'Timbré',
         'Dingo', 'Cinglé', 'Illuminé', 'Visionnaire', 'Transcendant',
         'Excentrique', 'Baroque', 'Rococo', 'Gothique', 'Punk',
-        'Grunge', 'Jazzy', 'Bluesy', 'Funky', 'Techno',
+        'Grunge', 'Jazzy', 'Bluesy', 'Électronique', 'Techno',
         'Cybernétique', 'Bionique', 'Robotique', 'Mécanique', 'Organique',
-        'Synthétique', 'Naturel', 'Sauvage', 'Domestique', 'Exotique'
+        'Synthétique', 'Naturel', 'Terrestre', 'Domestique', 'Exotique'
     ];
 
     const noms = [
@@ -58,24 +58,24 @@ export default function generateDisplayName(fileName) {
         'Méduse', 'Hippocampe', 'Étoile', 'Crabe', 'Homard',
         'Crevette', 'Langouste', 'Seiche', 'Calmar', 'Pieuvre',
         'Tigre', 'Léopard', 'Jaguar', 'Guépard', 'Panthère',
-        'Lion', 'Lionne', 'Lynx', 'Puma', 'Ocelot',
-        'Ours', 'Grizzli', 'Panda', 'Koala', 'Wombat',
+        'Lion', 'Lionne', 'Cougar', 'Puma', 'Ocelot',
+        'Ours', 'Grizzli', 'Ratel', 'Potamochère', 'Wombat',
         'Kangourou', 'Wallaby', 'Émeu', 'Kiwi', 'Autruche',
         'Gazelle', 'Antilope', 'Impala', 'Gnou', 'Zèbre',
         'Girafe', 'Éléphant', 'Rhinocéros', 'Hippopotame', 'Buffle',
-        'Bison', 'Yak', 'Chameau', 'Dromadaire', 'Lama',
+        'Bison', 'Yak', 'Chameau', 'Dromadaire', 'Guanaco',
         'Alpaga', 'Vigogne', 'Renne', 'Caribou', 'Élan',
         'Cerf', 'Biche', 'Chevreuil', 'Sanglier', 'Phacochère',
         'Mangouste', 'Suricate', 'Belette', 'Hermine', 'Fouine',
-        'Blaireau', 'Taupe', 'Hérisson', 'Musaraigne', 'Chauve-souris',
-        'Loup', 'Coyote', 'Chacal', 'Hyène', 'Renard',
-        'Fennec', 'Raton', 'Tanuki', 'Panda', 'Binturong',
+        'Blaireau', 'Taupe', 'Gerboise', 'Musaraigne', 'Chauve-souris',
+        'Loup', 'Coyote', 'Chacal', 'Hyène', 'Dhole',
+        'Kinkajou', 'Coati', 'Tanuki', 'Nasique', 'Binturong',
         'Lémurien', 'Tarsier', 'Ouistiti', 'Tamarin', 'Capucin',
         'Gorille', 'Chimpanzé', 'Orang-outan', 'Gibbon', 'Babouin',
-        'Mandrill', 'Macaque', 'Singe', 'Paresseux', 'Tamanoir',
-        'Fourmilier', 'Pangolin', 'Agouti', 'Capybara', 'Cochon',
+        'Mandrill', 'Macaque', 'Singe', 'Unau', 'Tamanoir',
+        'Fourmilier', 'Pangolin', 'Agouti', 'Viscache', 'Cochon',
         'Tapir', 'Okapi', 'Dugong', 'Lamantin', 'Phoque',
-        'Otarie', 'Morse', 'Narval', 'Béluga', 'Cachalot'
+        'Otarie', 'Morse', 'Rorqual', 'Béluga', 'Cachalot'
     ];
 
     const adjectif = adjectifs[Math.floor(Math.random() * adjectifs.length)];

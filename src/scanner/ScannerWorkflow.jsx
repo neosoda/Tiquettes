@@ -18,6 +18,10 @@ const hasTTS = typeof window !== 'undefined' && 'speechSynthesis' in window;
 
 function uid() { return Math.random().toString(36).slice(2, 9); }
 
+function escHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 function withIds(panel) {
     return {
         ...panel,
@@ -623,10 +627,10 @@ ${rows.map(m => {
         const nfcOk = m.nfcStatus === 'ok' || !m.nfcStatus;
         return `<div class="label">
 <div class="label-header">
-  <div class="label-name">${m.label || `Circuit ${m.position + 1}`}</div>
+  <div class="label-name">${escHtml(m.label) || `Circuit ${m.position + 1}`}</div>
   <div class="label-badge">${type} ${m.rating ?? '?'}A</div>
 </div>
-${m.zone ? `<div class="label-zone">${m.zone}</div>` : ''}
+${m.zone ? `<div class="label-zone">${escHtml(m.zone)}</div>` : ''}
 <div class="label-footer">
   <div class="label-info">${m.poles ? `${m.poles}P` : ''}</div>
   <div class="label-nfc">${nfcOk ? '✓ NF C 15-100' : '⚠ Vérifier'}</div>
@@ -671,7 +675,7 @@ h2{font-size:8pt;color:#666;margin:0 0 6mm;font-weight:400;}
 .footer{margin-top:8mm;font-size:6pt;color:#999;border-top:0.5px solid #ddd;padding-top:2mm;display:flex;justify-content:space-between;}
 </style></head>
 <body>
-<h1>⚡ Schéma électrique — Tableau ${panel.brand ?? ''}</h1>
+<h1>⚡ Schéma électrique — Tableau ${escHtml(panel.brand)}</h1>
 <h2>Généré par Vpanel Scanner · ${new Date().toLocaleDateString('fr-FR')} · Norme NF C 15-100</h2>
 ${panel.rows.map(row => `
 <div class="row-block">
@@ -682,8 +686,8 @@ ${panel.rows.map(row => `
         return `<div class="module" style="background:${color};min-width:${14 * (m.width || 1) + 2 * (m.width - 1)}mm;">
 <div class="mod-type">${typeText[m.type] ?? m.type}</div>
 <div class="mod-rating">${m.rating ?? '?'}A</div>
-${m.label ? `<div class="mod-label">${m.label}</div>` : ''}
-${m.zone ? `<div class="mod-zone">${m.zone}</div>` : ''}
+${m.label ? `<div class="mod-label">${escHtml(m.label)}</div>` : ''}
+${m.zone ? `<div class="mod-zone">${escHtml(m.zone)}</div>` : ''}
 </div>`;
     }).join('\n')}
   </div>

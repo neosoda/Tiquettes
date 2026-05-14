@@ -65,6 +65,11 @@ export default function Editor({
     const [isCustomFunction, setIsCustomFunction] = useState(false);
 
     const [editorTab, setEditorTab] = useState(ed?.tabPage ?? "main");
+
+    useEffect(() => {
+        setEd(editor);
+        setEditorTab(editor?.tabPage ?? "main");
+    }, [editor]);
     const prevModule = useMemo(() => getModuleById(ed?.prevModule?.parentId), [ed?.prevModule?.parentId]);
     const prevModuleTitle = useMemo(() => ((prevModule?.id ?? "-") + " " + (prevModule && schemaFunctions[prevModule.func] ? "(" + schemaFunctions[prevModule.func].name + ")" : "")).trim(), [prevModule]);
 

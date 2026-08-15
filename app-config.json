@@ -24,6 +24,22 @@
         "url": "https://github.com/neosoda/Vpanel"
     },
     "changelog": {
+        "2.3.0": {
+            "date": "2026-05-06",
+            "actions": {
+                "adds": [
+                    {
+                        "text": "Persistance des projets entre sessions : migration de sessionStorage vers localStorage pour ne plus perdre son travail à la fermeture du navigateur."
+                    },
+                    {
+                        "text": "Endpoints API load.php et save.php : sauvegarde et chargement serveur des projets via le système d'espaces (URL ?ufiid=...)."
+                    },
+                    {
+                        "text": "Variable d'environnement VITE_OPENROUTER_KEY pour la clé API du scanner IA, disponible dans tous les profils de déploiement."
+                    }
+                ]
+            }
+        },
         "2.2.7": {
             "date": "2025-03-27",
             "actions": {
